@@ -6,4 +6,4 @@
 # Viikko 2, ohjelmistotekniikka
 
 **Laskarit:**
-*[Unicafe-testit] ja [Coverage report]*
+*[Unicafe-testit](https://github.com/anttinevalainen/ot-harjoitustyo/tree/main/laskarit/viikko2/unicafe/src/tests) ja [Coverage report](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/laskarit/viikko2/coverage_report.png)*
