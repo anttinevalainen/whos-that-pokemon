@@ -9,7 +9,7 @@ Sovelluksella on alustavasti vain yhdenlaisia käyttäjiä. Myös adminkäyttäj
 
 ###Käyttöliittymäluonnos
 Sovelluksen tarkempi käyttöliittymäluonnos on vielä tekeillä, mutta alla ns. concept art -luonnos sovelluksen päävaiheen ulkoasusta
-#
+
 <img src=kuvat/concept.jpeg width="200" height="300">
 
 ###Perusversion tarjoama toiminnallisuus
