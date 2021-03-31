@@ -10,7 +10,8 @@ Sovelluksella on alustavasti vain yhdenlaisia käyttäjiä. Myös adminkäyttäj
 ### Käyttöliittymäluonnos
 Sovelluksen tarkempi käyttöliittymäluonnos on vielä tekeillä, mutta alla ns. concept art -luonnos sovelluksen päävaiheen ulkoasusta
 
-<img src=kuvat/concept.jpeg width="200" height="300">
+<img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/harjoitustyo/data/concept.jpeg width="200" height="300">
+
 
 ### Perusversion tarjoama toiminnallisuus
 Perusversiossa käyttäjä valitsee päävalikosta, haluaako hän tarkastella tuloksia vai siirtyä tunnistamaan Pokémoneja. Päävalikosta on myös mahdollista sulkea sovellus. Tunnistaessa käyttäjä kirjoittaa arvauksensa tekstikenttään ja lähettää vastauksen, jolloin sovellus ilmoittaa, onko vastaus oikein vai väärin. Kun käyttäjä vastaa oikein, sovellus ilmoittaa siitä, näyttää siluetin takana olevan Pokémonin kuvan ja siirtyy seuraavaan kuvaan. Kun käyttäjä vastaa väärin, sovellus ilmoittaa siitä, näyttää siluetin takana olevan Pokémonin kuvan ja ilmoittaa pelin päättymisestä. Pelin päättymisen jälkeen käyttäjä voi ilmoittaa pelaajanimensä ja lähettää tuloksensa leaderboardiin.
