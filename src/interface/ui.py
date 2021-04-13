@@ -1,6 +1,6 @@
-from index import Index_page
-from play import Play_page
-from hiscores import Hiscore_page
+from src.interface.index import Index_page
+from src.interface.play import Play_page
+from src.interface.hiscores import Hiscore_page
 
 class UI:
     def __init__(self,root):
