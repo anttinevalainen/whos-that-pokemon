@@ -11,7 +11,7 @@ class Hiscore_page:
         '''Button commands & page transitions still under construction'''
         self.frame = tk.Frame(master = self.root)
 
-        background_image = tk.PhotoImage(file = 'src/data/png/whos_that_pokemon.png')
+        background_image = tk.PhotoImage(file = 'data/png/whos_that_pokemon.png')
         background_label = tk.Label(self.root,image = background_image)
         background_label.image = background_image
         background_label.place(x = 0,y = 0,width = 640,height = 480)

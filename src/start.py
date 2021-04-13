@@ -1,5 +1,5 @@
 import tkinter as tk
-from src.interface.ui import UI
+from interface.ui import UI
 
 root = tk.Tk()
 root.title("Who's that Pokemon?!?!?!?!?!")

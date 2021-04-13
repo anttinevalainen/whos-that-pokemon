@@ -1,5 +1,5 @@
 import tkinter as tk
-import src.data.data_handling as dh
+import data.data_handling as dh
 
 class Play_page:
 
@@ -13,7 +13,7 @@ class Play_page:
         self.frame = tk.Frame(self.root)
         self.pokemon_name_string, self.pokemon_full_name_string, self.silhouette_photoimage, self.pokemon_photoimage = dh.get_pokemon_data()
 
-        background_image = tk.PhotoImage(file = 'src/data/png/whos_that_pokemon.png')
+        background_image = tk.PhotoImage(file = 'data/png/whos_that_pokemon.png')
         background_label = tk.Label(self.root,image = background_image)
         background_label.image = background_image
         background_label.place(x = 0,y = 0,width = 640,height = 480)
