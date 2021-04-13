@@ -9,7 +9,7 @@ class Test_data_handling(unittest.TestCase):
 
     def test_randomizer_returns_existing_filename(self):
         filename = dh.get_random_filename()
-        filepath = 'src/data/png/' + filename
+        filepath = 'data/png/' + filename
         self.assertTrue(os.path.isfile(filepath))
 
     def test_get_silhouette_returns_existing_filename(self):
@@ -19,7 +19,7 @@ class Test_data_handling(unittest.TestCase):
 
     def test_get_name_matches_with_pokemon_number(self):
         filename = dh.get_random_filename()
-        pokedex_df = pd.read_csv('src/data/pokedex_list.csv', sep = ',')
+        pokedex_df = pd.read_csv('data/pokedex_list.csv', sep = ',')
 
         number = filename[:-4]
         number_s = number.split('-')
