@@ -7,8 +7,6 @@ Who's that Pokémon on sovellus, joka toimii perinteisen Pokémon-animen rinnall
 
 Sovelluksessa on alustavasti sukupolvien 1-6 Pokémonit (721kpl) sekä näiden mahdolliset megaevoluutiot ja evoluutiohaaran sisällä tapahtuvat mahdolliset erikoismuodot. Sovelluksen perimmäinen tarkoitus on harjoitella Pokémonien nimien muistamista, mutta se voidaan myös mieltää peliksi. Kierroksen päätyttyä (Käyttäjän syötettyä väärän vastauksen tai ajastimen (10 sekuntia per kierros) päättyessä) käyttäjän on mahdollista tallentaa tuloksensa gamertagin (Kolme kirjainta) avulla.
 
-## Huomio Python-versiosta
-
 Sovellus on luotu ja testattu Pythonin versiolla 3.9.2.
 
 ## Dokumentaatio
