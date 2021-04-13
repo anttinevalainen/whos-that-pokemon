@@ -1,25 +1,49 @@
 # TKT20002 - Ohjelmistotekniikka
 
-## Viikko 1
 
-**Laskarit:**\
-*[komentorivi.txt](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)*\
-*[gitlog.txt](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)*
+# Who's that Pokémon -tunnistussovellus
 
-## Viikko 2
+Who's that Pokémon on sovellus, joka toimii perinteisen Pokémon-animen rinnalla esitettävien kuva-arvoitusten mukaisesti. Pelissä on tarkoitus tunnistaa kuvassa näkyvä Pokémon vain sen mustan siluetin perusteella ja syöttää sen nimi kirjoitusnäkymään. Käyttäjä saa pisteitä sen mukaan, kuinka nopeasti oikea vastaus syötetään.
 
-**Laskarit:**\
-*[Unicafe-testit](https://github.com/anttinevalainen/ot-harjoitustyo/tree/main/laskarit/viikko2/unicafe/src/tests)*\
-*[Coverage report](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/laskarit/viikko2/coverage_report.png)*
+Sovelluksessa on alustavasti sukupolvien 1-6 Pokémonit (721kpl) sekä näiden mahdolliset megaevoluutiot ja evoluutiohaaran sisällä tapahtuvat mahdolliset erikoismuodot. Sovelluksen perimmäinen tarkoitus on harjoitella Pokémonien nimien muistamista, mutta se voidaan myös mieltää peliksi. Kierroksen päätyttyä (Käyttäjän syötettyä väärän vastauksen tai ajastimen (10 sekuntia per kierros) päättyessä) käyttäjän on mahdollista tallentaa tuloksensa gamertagin (Kolme kirjainta) avulla.
 
-**Harjoitustyö:**\
-*[Who's that Pokémon -tunnistussovelluksen kansio](https://github.com/anttinevalainen/ot-harjoitustyo/tree/main/dokumentaatio)*\
-*[Sovelluksen vaatimusmäärittely](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)*
+## Huomio Python-versiosta
 
-## Viikko 3
+Sovellus on luotu ja testattu Pythonin versiolla 3.9.2.
 
-**Laskarit:**\
-*[Monopoli-simple](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/laskarit/viikko3/1.png)*\
-*[Monopoli-complex](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/laskarit/viikko3/2.png)*\
-*[Machine](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/laskarit/viikko3/3.png)*\
-*[HKLLaitehallinto](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/laskarit/viikko3/4.png)*
+## Dokumentaatio
+
+- *[Sovelluksen kansio](https://github.com/anttinevalainen/ot-harjoitustyo/tree/main/dokumentaatio)*\
+- *[Tuntikirjanpito](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/tuntikirjanpito.md)*\
+- *[Sovelluksen vaatimusmäärittely](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)*
+
+## Asennus
+
+1. Sovelluksen riippuvuudet (dependencies) sennetaan suorittamalla juurikansiossa komento:
+
+```bash
+poetry install
+```
+
+2. Sovellus voidaan käynnistää komennolla:
+
+```bash
+poetry run invoke start
+```
+
+
+## Testaus
+
+Sovelluksen testit suoritetaan komennolla:
+
+```bash
+poetry run invoke test
+```
+
+## Testikattavuus
+
+Sovelluksen testikattavuusraportti generoidaan suorittamalla komento:
+
+```bash
+poetry run invoke coverage-report
+```
