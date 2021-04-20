@@ -17,8 +17,8 @@ class PlayPage:
 
         cw.create_background_label(self.root)
 
-        (self.pokemon_name_string, self.pokemon_full_name_string,
-        self.silhouette_photoimage, self.pokemon_photoimage) = dh.get_pokemon_data()
+        (self.pokemon_full_name_string, self.silhouette_photoimage,
+        self.pokemon_photoimage) = dh.get_pokemon_data()
 
         self.health_photoimage = dh.get_health_photoimage(self.player_score)
 
@@ -72,7 +72,7 @@ class PlayPage:
     def send_answer(self):
         (self.background,
         self.text,
-        self.correct)= dh.check_answer(self.pokemon_name_string, self.answer.get())
+        self.correct)= dh.check_answer(self.pokemon_full_name_string, self.answer.get())
 
         if self.correct:
             self.player_score.correct_answer()

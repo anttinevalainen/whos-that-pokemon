@@ -16,16 +16,6 @@ def get_silhouette(filename):
     silhouette_filepath = 'src/data/png/black_' + filename
     return silhouette_filepath
 
-def get_pokemon_name(filename):
-    '''Returns the name of the pokemon with given filepath'''
-    pokedex_df = pd.read_csv('src/data/pokedex_list.csv', sep = ',')
-    filename = filename[:-4]
-    filename_s = filename.split('-')
-
-    pokemon_name_string = pokedex_df.at[int(filename_s[0])-1, 'pokemon']
-
-    return pokemon_name_string
-
 def get_pokemon_full_name(filename):
     '''Returns the name and the type of possible secondary form (string)\
         Requires the filename of said pokemon (string)'''
@@ -49,7 +39,7 @@ def get_pokemon_full_name(filename):
 def get_silhouette_photoimage(silhouette_filename):
     '''returns a ready made photoimage of the silhouette merged with \
         the background. Takes the filename of the silhouette in \
-            src/data/png folder'''
+        src/data/png folder'''
     silhouette_image = Image.open(silhouette_filename).convert('RGBA')
     image_background = Image.open('src/data/png/image_background.png').convert('RGBA')
     image_background.paste(silhouette_image, (0, 0), silhouette_image)
@@ -66,19 +56,20 @@ def get_pokemon_photoimage(filename):
     pokemon_photoimage = ImageTk.PhotoImage(image_background)
     return pokemon_photoimage
 
-def check_answer(pokemon_name_string, answer):
+def check_answer(pokemon_full_name_string, answer):
     '''returns a string telling user's answer's correctness, a photoimage
     of the answer text's background and a boolean value of answer
     correctness. requires the pokemon name and user input as
     string values'''
 
     background = tk.PhotoImage(file = 'src/data/png/text_background.png')
+    pokemon_split = pokemon_full_name_string.split(' ')
 
-    if answer.lower() == pokemon_name_string.lower():
-        text = "CORRECT! \n It's " + pokemon_name_string + '!'
+    if answer.lower() == pokemon_split[0].lower():
+        text = "CORRECT! \n It's " + pokemon_full_name_string + '!'
         correct = True
     else:
-        text = "WRONG! \n It's " + pokemon_name_string + '!'
+        text = "WRONG! \n It's " + pokemon_full_name_string + '!'
         correct = False
 
     return background, text, correct
@@ -121,9 +112,8 @@ def get_pokemon_data():
     w/ background (photoimage)'''
     random_filename = get_random_filename()
     silhouette_filename = get_silhouette(random_filename)
-    pokemon_name_string = get_pokemon_name(random_filename)
     pokemon_full_name_string = get_pokemon_full_name(random_filename)
     silhouette_photoimage = get_silhouette_photoimage(silhouette_filename)
     pokemon_photoimage = get_pokemon_photoimage(random_filename)
 
-    return pokemon_name_string, pokemon_full_name_string, silhouette_photoimage, pokemon_photoimage
+    return pokemon_full_name_string, silhouette_photoimage, pokemon_photoimage
