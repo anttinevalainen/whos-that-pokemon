@@ -10,13 +10,24 @@ Sovelluksella on alustavasti vain yhdenlaisia käyttäjiä. Myös adminkäyttäj
 ### Käyttöliittymäluonnos
 Sovelluksen tarkempi käyttöliittymäluonnos on vielä tekeillä, mutta alla ns. concept art -luonnos sovelluksen päävaiheen ulkoasusta
 
-<img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/harjoitustyo/data/concept.jpeg width="200" height="300">
+<img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/concept.jpeg width="200" height="300">
 
 
 ### Perusversion tarjoama toiminnallisuus
-Perusversiossa käyttäjä valitsee päävalikosta, haluaako hän tarkastella tuloksia vai siirtyä tunnistamaan Pokémoneja. (DONE) Päävalikosta on myös mahdollista sulkea sovellus. (DONE) Tunnistaessa käyttäjä kirjoittaa arvauksensa tekstikenttään ja lähettää vastauksen, jolloin sovellus ilmoittaa, onko vastaus oikein vai väärin. (DONE) Kun käyttäjä vastaa oikein, sovellus ilmoittaa siitä, näyttää siluetin takana olevan Pokémonin kuvan ja siirtyy seuraavaan kuvaan. (DONE) Kun käyttäjä vastaa väärin, sovellus ilmoittaa siitä, näyttää siluetin takana olevan Pokémonin kuvan ja ilmoittaa pelin päättymisestä. (Sovellukseen lisätty health-muuttuja, joka mahdollistaa kolme väärää vastausta, ennen pelin päättymistä! (DONE)) Pelin päättymisen jälkeen käyttäjä voi ilmoittaa pelaajanimensä ja lähettää tuloksensa leaderboardiin. (Pelaajanimi ilmoitetaan ennen kierroksen alkua ja kierroksen päättyessä, sovellus ilmoittaa onko käyttäjä saanut tarpeeksi pisteitä lähettääkseen tuloksensa leaderboardiin.)
+Perusversiossa käyttäjä valitsee päävalikosta, haluaako hän tarkastella tuloksia vai siirtyä tunnistamaan Pokémoneja. (✓)
+Päävalikosta on myös mahdollista sulkea sovellus. (✓)
+Tunnistaessa käyttäjä kirjoittaa arvauksensa tekstikenttään ja lähettää vastauksen, jolloin sovellus ilmoittaa, onko vastaus oikein vai väärin. (✓)
+Kun käyttäjä vastaa oikein, sovellus ilmoittaa siitä, näyttää siluetin takana olevan Pokémonin kuvan ja siirtyy seuraavaan kuvaan. (✓)
+Kun käyttäjä vastaa väärin, sovellus ilmoittaa siitä, näyttää siluetin takana olevan Pokémonin kuvan ja ilmoittaa pelin päättymisestä.
+(Sovellukseen lisätty health-muuttuja, joka mahdollistaa kolme väärää vastausta, ennen pelin päättymistä! (✓))
+Pelin päättymisen jälkeen käyttäjä voi ilmoittaa pelaajanimensä ja lähettää tuloksensa leaderboardiin.
+(Pelaajanimi ilmoitetaan ennen kierroksen alkua ja kierroksen päättyessä, sovellus ilmoittaa onko käyttäjä saanut tarpeeksi pisteitä lähettääkseen tuloksensa leaderboardiin. (✓))
+
+Tekemättä (20.4.)
+- Ajastin arvauskierroksille ja pisteidenanto nopeuden mukaan
 
 Mahdollisen adminkäyttäjän on mahdollista käyttää sovellusta ylläolevan selostuksen mukaisesti, mutta hän voi myös poistaa leaderboardista tuloksia pelaajanimen perusteella. Adminkäyttäjän sisällyttäminen sovellukseen on vielä harkinnassa.
+20.4. Adminkäyttäjää ei toistaiseksi luotu
 
 ### Jatkokehitysideat
 - Puuttuvien Pokémonien lisääminen sovellukseen (722-898)
