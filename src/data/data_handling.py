@@ -1,82 +1,129 @@
 import tkinter as tk
-from PIL import Image, ImageTk
 import random
 import pandas as pd
+from PIL import Image, ImageTk
 
 def get_random_filename():
     '''Returns the png-filename of a random pokemon'''
-    directory_df = pd.read_csv('src//data/directory_list.csv', sep = ',')
-    random_integer = random.randint(0,len(directory_df))
+    directory_df = pd.read_csv('src/data/directory_list.csv', sep = ',')
+    random_integer = random.randint(0,len(directory_df)-1)
     filename = directory_df.at[random_integer, 'file']
+
     return filename
 
 def get_silhouette(filename):
     '''Returns the silhouette image file of a given pokemon image file'''
-    silhouette_filepath = 'src//data/png/black_' + filename
+    silhouette_filepath = 'src/data/png/black_' + filename
     return silhouette_filepath
 
 def get_pokemon_name(filename):
     '''Returns the name of the pokemon with given filepath'''
-    pokedex_df = pd.read_csv('src//data/pokedex_list.csv', sep = ',')
+    pokedex_df = pd.read_csv('src/data/pokedex_list.csv', sep = ',')
     filename = filename[:-4]
     filename_s = filename.split('-')
 
     pokemon_name_string = pokedex_df.at[int(filename_s[0])-1, 'pokemon']
-        
+
     return pokemon_name_string
 
 def get_pokemon_full_name(filename):
-    '''Returns the name and the type of possible secondary form of the pokemon with given filepath'''
-    pokedex_df = pd.read_csv('src//data/pokedex_list.csv', sep = ',')
+    '''Returns the name and the type of possible secondary form (string)\
+        Requires the filename of said pokemon (string)'''
+    pokedex_df = pd.read_csv('src/data/pokedex_list.csv', sep = ',')
     filename = filename[:-4]
     filename_s = filename.split('-')
-    
+    filenumber = int(filename_s[0])-1
+
     if len(filename_s) > 1:
-        pokemon_full_name_string = pokedex_df.at[int(filename_s[0])-1, 'pokemon'] + ' (' + filename_s[1] + ')'
+        second_part = filename_s[1]
+        first_part = pokedex_df.at[filenumber, 'pokemon']
+
+        pokemon_full_name_string = first_part + ' (' + second_part + ')'
+
     else:
-        pokemon_full_name_string = pokedex_df.at[int(filename_s[0])-1, 'pokemon']
-        
+
+        pokemon_full_name_string = pokedex_df.at[filenumber, 'pokemon']
+
     return pokemon_full_name_string
 
 def get_silhouette_photoimage(silhouette_filename):
-    '''returns a ready made photoimage of the silhouette merged with the background.'''
-    '''takes the filename of the silhouette in src//data/png folder'''
+    '''returns a ready made photoimage of the silhouette merged with \
+        the background. Takes the filename of the silhouette in \
+            src/data/png folder'''
     silhouette_image = Image.open(silhouette_filename).convert('RGBA')
-    image_background = Image.open('src//data/png/image_background.png').convert("RGBA")
+    image_background = Image.open('src/data/png/image_background.png').convert('RGBA')
     image_background.paste(silhouette_image, (0, 0), silhouette_image)
-    silhouette_image_label = ImageTk.PhotoImage(image_background)
-    return silhouette_image_label
+    silhouette_photoimage = ImageTk.PhotoImage(image_background)
+    return silhouette_photoimage
 
 def get_pokemon_photoimage(filename):
-    '''returns a ready made photoimage of the pokemon merged with the background.'''
-    '''takes the filename of the pokemon in src//data/png folder'''
-    pokemon_image = Image.open('src//data/png/' + filename).convert('RGBA')
-    image_background = Image.open('src//data/png/image_background.png').convert("RGBA")
+    '''returns a ready made photoimage of the pokemon
+    merged with the background. requires the filename of
+    the pokemon in src/data/png folder'''
+    pokemon_image = Image.open('src/data/png/' + filename).convert('RGBA')
+    image_background = Image.open('src/data/png/image_background.png').convert('RGBA')
     image_background.paste(pokemon_image, (0, 0), pokemon_image)
-    pokemon_image_label = ImageTk.PhotoImage(image_background)
-    return pokemon_image_label
+    pokemon_photoimage = ImageTk.PhotoImage(image_background)
+    return pokemon_photoimage
 
-def get_correct_answer(pokemon_name_string):
-    '''returns a photoimage of the label background and the string to be placed on top of it when user inputs correct name'''
-    '''takes the pokemon name as a string, returns photoimage and a string'''
-    background = tk.PhotoImage(file = 'src//data/png/text_background.png')
-    text = "CORRECT! \n It's " + pokemon_name_string + '!'
-    return background, text
+def check_answer(pokemon_name_string, answer):
+    '''returns a string telling user's answer's correctness, a photoimage
+    of the answer text's background and a boolean value of answer
+    correctness. requires the pokemon name and user input as
+    string values'''
 
-def get_incorrect_answer(pokemon_name_string):
-    '''returns a photoimage of the label background and the string to be placed on top of it when user inputs incorrect name'''
-    '''takes the pokemon name as a string, returns photoimage and a string'''
-    background = tk.PhotoImage(file = 'src//data/png/text_background.png')
-    text = "WRONG! \n It's " + pokemon_name_string + '!'
-    return background, text
-    
+    background = tk.PhotoImage(file = 'src/data/png/text_background.png')
+
+    if answer.lower() == pokemon_name_string.lower():
+        text = "CORRECT! \n It's " + pokemon_name_string + '!'
+        correct = True
+    else:
+        text = "WRONG! \n It's " + pokemon_name_string + '!'
+        correct = False
+
+    return background, text, correct
+
+def get_health_photoimage(player_score):
+    '''returns a ready made photoimage of player's health merged with
+    the background. Requires the current player_score as a variable'''
+
+    heart_fp = 'src/data/png/heart.png'
+    noheart_fp = 'src/data/png/noheart.png'
+    background_fp = 'src/data/png/health_background.png'
+
+    heart = Image.open(heart_fp).convert('RGBA')
+    noheart = Image.open(noheart_fp).convert('RGBA')
+    health_background = Image.open(background_fp).convert('RGBA')
+
+    if player_score.get_health() == 3:
+        health_background.paste(heart, (0, 0), heart)
+        health_background.paste(heart, (74, 0), heart)
+        health_background.paste(heart, (148, 0), heart)
+    elif player_score.get_health() == 2:
+        health_background.paste(heart, (0, 0), heart)
+        health_background.paste(heart, (74, 0), heart)
+        health_background.paste(noheart, (148, 0), noheart)
+    elif player_score.get_health() == 1:
+        health_background.paste(heart, (0, 0), heart)
+        health_background.paste(noheart, (74, 0), noheart)
+        health_background.paste(noheart, (148, 0), noheart)
+    else:
+        health_background.paste(noheart, (0, 0), noheart)
+        health_background.paste(noheart, (74, 0), noheart)
+        health_background.paste(noheart, (148, 0), noheart)
+
+    health_photoimage = ImageTk.PhotoImage(health_background)
+    return health_photoimage
+
 def get_pokemon_data():
-    '''returns all the data stated in src//data/data_handling.py in one single get command revolving around a single random pokemon
-    EXCLUDING: Random filename -string, silhouette filename -string and the correct/incorrect answer data'''
+    '''Returns Pokémon name(string), Pokémon full name (string),
+    silhouette image w/ background (photoimage) and Pokémon image
+    w/ background (photoimage)'''
     random_filename = get_random_filename()
     silhouette_filename = get_silhouette(random_filename)
     pokemon_name_string = get_pokemon_name(random_filename)
     pokemon_full_name_string = get_pokemon_full_name(random_filename)
     silhouette_photoimage = get_silhouette_photoimage(silhouette_filename)
     pokemon_photoimage = get_pokemon_photoimage(random_filename)
+
     return pokemon_name_string, pokemon_full_name_string, silhouette_photoimage, pokemon_photoimage

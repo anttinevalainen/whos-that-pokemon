@@ -1,47 +1,46 @@
 import tkinter as tk
 import data.data_handling as dh
+import gameplay.create_widget as cw
 
-class Play_page:
+class PlayPage:
 
-    def __init__(self, root):
+    def __init__(self, root, player_score, index_button_action, game_over_button_action):
         self.root = root
+        self.player_score = player_score
+        self.index_button_action = index_button_action
+        self.game_over_button_action = game_over_button_action
         self.initialize()
 
     def initialize(self):
         '''Initializes the graphic interface for the play page'''
-        '''Button commands & page transitions still under construction'''
         self.frame = tk.Frame(self.root)
-        self.pokemon_name_string, self.pokemon_full_name_string, self.silhouette_photoimage, self.pokemon_photoimage = dh.get_pokemon_data()
 
-        background_image = tk.PhotoImage(file = 'src/data/png/whos_that_pokemon.png')
-        background_label = tk.Label(self.root,image = background_image)
-        background_label.image = background_image
-        background_label.place(x = 0,y = 0,width = 640,height = 480)
+        cw.create_background_label(self.root)
 
-        label = tk.Label(
-            self.root, 
-            text = "?!?!?!?!", 
-            bg = 'red',
-            fg = 'blue',
-            font = ("Helvetica", 20)
-            )
-        label.place(x = 80,y = 20,width = 160,height = 44)
+        (self.pokemon_name_string, self.pokemon_full_name_string,
+        self.silhouette_photoimage, self.pokemon_photoimage) = dh.get_pokemon_data()
 
-        self.create_silhouette_label(self.silhouette_photoimage)
+        self.health_photoimage = dh.get_health_photoimage(self.player_score)
 
-        button1 = tk.Button(
-            self.root, 
-            text = 'Return to index!', 
-            bg = 'red',
-            fg = 'blue',
-            font = ("Helvetica", 10),
-            #command  = 
+        cw.create_progress_label(self.root, self.player_score)
+
+        cw.create_health_label(self.root, self.health_photoimage)
+
+        cw.create_pokemon_label(self.root, self.silhouette_photoimage)
+
+        index_button = tk.Button(
+            self.root,
+            text = 'Return to index!',
+            bg = '#ec3025',
+            fg = '#0f4d88',
+            font = ('Helvetica', 10),
+            command  = self.index_button_action
         )
-        button1.place(
-            x = 520, 
-            y = 20, 
-            width = 100, 
-            height = 44
+        index_button.place(
+            x = 520,
+            y = 20,
+            width = 100,
+            height = 45
         )
 
         self.answer = tk.Entry(
@@ -50,132 +49,50 @@ class Play_page:
             font = ('Helvetica',10,'bold')
         )
         self.answer.place(
-            x = 20, 
-            y = 400, 
-            width = 200, 
+            x = 20,
+            y = 400,
+            width = 200,
             height = 30
         )
-        button2 = tk.Button(
-            self.root, 
-            text = '!', 
-            bg = 'red',
-            fg = 'blue',
-            font = ("Helvetica", 20),
+        self.send_answer_button = tk.Button(
+            self.root,
+            text = '!',
+            bg = '#ec3025',
+            fg = '#0f4d88',
+            font = ('Helvetica', 20),
             command = self.send_answer
         )
-        button2.place(
+        self.send_answer_button.place(
             x = 230,
-            y = 395, 
-            width = 44, 
-            height = 44
-        )
-
-    def create_silhouette_label(self, silhouette_photoimage):
-        silhouette_label = tk.Label(
-            self.root, 
-            image = self.silhouette_photoimage, 
-            bd = 0, 
-            highlightthickness = 0, 
-            relief = 'ridge'
-        )
-        silhouette_label.place(
-            x =  33, 
-            y = 104
-        )
-
-    def create_pokemon_label(self, pokemon_photoimage):
-        pokemon_label = tk.Label(
-            self.root, 
-            image = self.pokemon_photoimage, 
-            bd = 0, 
-            highlightthickness = 0, 
-            relief = 'ridge'
-        )
-        pokemon_label.place(
-            x =  33, 
-            y = 104
+            y = 395,
+            width = 45,
+            height = 45
         )
 
     def send_answer(self):
-        if self.pokemon_name_string.lower() ==  self.answer.get().lower():
+        (self.background,
+        self.text,
+        self.correct)= dh.check_answer(self.pokemon_name_string, self.answer.get())
 
-            self.background, self.text = dh.get_correct_answer(self.pokemon_full_name_string)
-
-            text_canvas = tk.Canvas(
-                self.root, 
-                bd = 0, 
-                highlightthickness = 0, 
-                relief = 'ridge'
-            )
-            text_canvas.place(
-                x = 20, 
-                y = 400, 
-                width = 200, 
-                height = 60
-            )
-            text_canvas.create_image(
-                200/2,
-                60/2, 
-                image = self.background
-            )
-            text_canvas.create_text(
-                200/2,
-                20,
-                text = self.text, 
-                font = ("Helvetica", 13), 
-                fill = 'blue'
-            )
-
+        if self.correct:
+            self.player_score.correct_answer()
+            cw.create_answer_canvas(self.root, self.background, self.text)
         else:
+            self.player_score.incorrect_answer()
+            cw.create_answer_canvas(self.root, self.background, self.text)
 
-            self.background, self.text = dh.get_incorrect_answer(self.pokemon_full_name_string)
-            text_canvas = tk.Canvas(
-                self.root, 
-                bd = 0, 
-                highlightthickness = 0, 
-                relief = 'ridge'
-            )
-            text_canvas.place(
-                x = 20, 
-                y = 400, 
-                width = 200, 
-                height = 60
-            )
-            text_canvas.create_image(
-                200/2,
-                60/2, 
-                image = self.background
-            )
-            text_canvas.create_text(
-                200/2, 
-                20,
-                text = self.text, 
-                font = ("Helvetica", 13), 
-                fill = 'blue'
-            )
+        cw.create_pokemon_label(self.root, self.pokemon_photoimage)
 
-        self.create_pokemon_label(self.pokemon_photoimage)
-
-        next_button = tk.Button(
-            self.root, 
-            text = 'Next!', 
-            bg = 'red',
-            fg = 'blue',
-            font = ("Helvetica", 10),
-            command = self.next_button_pressed
-        )
-        next_button.place(
-            x = 230,
-            y = 395, 
-            width = 44, 
-            height = 44
-        )
-
+        self.send_answer_button['text'] = 'Next!'
+        self.send_answer_button['font'] = ('Helvetica', 10)
+        self.send_answer_button['command'] = self.next_button_pressed
 
     def next_button_pressed(self):
-        self.close_frame()
-        self.initialize()
-        #self.pack()
+        if self.player_score.get_health() < 1:
+            self.game_over_button_action(self.player_score)
+        else:
+            self.close_frame()
+            self.initialize()
 
     def close_frame(self):
         self.frame.destroy()

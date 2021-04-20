@@ -1,39 +1,31 @@
 import tkinter as tk
+import gameplay.create_widget as cw
 
-class Hiscore_page:
+class HiscorePage:
 
-    def __init__(self, root):
+    def __init__(self, root, index_button_action):
         self.root = root
+        self.index_button_action = index_button_action
         self.initialize()
 
     def initialize(self):
         '''Initializes the graphic interface for the high score page'''
-        '''Button commands & page transitions still under construction'''
+
         self.frame = tk.Frame(master = self.root)
+        cw.create_background_label(self.root)
 
-        background_image = tk.PhotoImage(file = 'src//data/png/whos_that_pokemon.png')
-        background_label = tk.Label(self.root,image = background_image)
-        background_label.image = background_image
-        background_label.place(x = 0,y = 0,width = 640,height = 480)
-        label = tk.Label(
-            self.root, 
-            text = "High scores!", 
-            bg = 'red',
-            fg = 'blue',
-            font = ("Helvetica", 20)
-            )
-        label.place(x = 80,y = 50,width = 160,height = 44)
+        cw.create_hiscore_table(self.root)
 
-        button1 = tk.Button(
-            self.root, 
-            text = 'Return to index!', 
-            bg = 'red',
-            fg = 'blue',
-            font = ("Helvetica", 10),
-            #command = 
+        index_button = tk.Button(
+            self.root,
+            text = 'Return to index!',
+            bg = '#ec3025',
+            fg = '#0f4d88',
+            font = ('Helvetica', 10),
+            command  = self.index_button_action
         )
 
-        button1.place(x = 520, y = 20, width = 100, height = 44)
+        index_button.place(x = 520, y = 20, width = 100, height = 44)
 
     def close_frame(self):
         self.frame.destroy()
