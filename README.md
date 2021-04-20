@@ -47,3 +47,11 @@ Sovelluksen testikattavuusraportti generoidaan suorittamalla komento:
 ```bash
 poetry run invoke coverage-report
 ```
+
+### Pylint
+
+Pylint suoritetaan komennolla:
+
+```bash
+poetry run invoke lint
+```
