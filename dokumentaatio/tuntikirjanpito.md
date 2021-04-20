@@ -13,3 +13,9 @@
 | 13.4.| 3    | Ohjelmiston grafiikan luomista                                 |
 | 13.4.| 3    | Ensimmäisten testien luominen                                  |
 | 13.4.| 2    | Tiedostosijaintien siivoamista ja 3. palautuksen valmistelu    |
+| 13.4.| 3    | Sovelluksen toiminnnallisuuden laajentamista                   |
+| 15.4.| 3    | Toiminnallisuuden laajentamista                                |
+| 17.4.| 3    | Tiedostosijaintien ja toiminnallisuuden korjailua              |
+| 20.4.| 1    | Pylintin käyttöönotto                                          |
+| 20.4.| 3    | Testien kirjoittamista                                         |
+| 20.4.| 1    | Tiedostosijaintien siivoamista ja palautuksen valmistelu       |
