@@ -19,3 +19,4 @@
 | 20.4.| 1    | Pylintin käyttöönotto                                          |
 | 20.4.| 3    | Testien kirjoittamista                                         |
 | 20.4.| 1    | Tiedostosijaintien siivoamista ja palautuksen valmistelu       |
+| 21.4.| 5    | Testien kirjoittamista ja koodin siivoamista                   |
