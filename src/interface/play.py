@@ -70,16 +70,19 @@ class PlayPage:
         )
 
     def send_answer(self):
-        (self.background,
-        self.text,
-        self.correct)= dh.check_answer(self.pokemon_full_name_string, self.answer.get())
 
-        if self.correct:
+        self.background = tk.PhotoImage(file = 'src/data/png/text_background.png')
+
+        if dh.check_answer(self.pokemon_full_name_string, self.answer.get()):
+
             self.player_score.correct_answer()
-            cw.create_answer_canvas(self.root, self.background, self.text)
+            self.text = "CORRECT! \n It's " + self.pokemon_full_name_string + '!'
+            cw.create_answer_canvas(self.root, self.text, self.background)
+
         else:
             self.player_score.incorrect_answer()
-            cw.create_answer_canvas(self.root, self.background, self.text)
+            self.text = "WRONG! \n It's " + self.pokemon_full_name_string + '!'
+            cw.create_answer_canvas(self.root, self.text, self.background)
 
         cw.create_pokemon_label(self.root, self.pokemon_photoimage)
 

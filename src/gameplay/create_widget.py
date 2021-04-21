@@ -51,7 +51,8 @@ def create_background_label(frame):
     background_label.place(x = 0,y = 0,width = 640,height = 480)
 
 
-def create_answer_canvas(frame, text_background_photoimage, text):
+def create_answer_canvas(frame, text, background):
+
     text_canvas = tk.Canvas(
         frame,
         bd = 0,
@@ -67,7 +68,7 @@ def create_answer_canvas(frame, text_background_photoimage, text):
     text_canvas.create_image(
         200/2,
         60/2,
-        image = text_background_photoimage
+        image = background
     )
     text_canvas.create_text(
         200/2,

@@ -1,4 +1,3 @@
-import tkinter as tk
 import random
 import pandas as pd
 from PIL import Image, ImageTk
@@ -57,22 +56,16 @@ def get_pokemon_photoimage(filename):
     return pokemon_photoimage
 
 def check_answer(pokemon_full_name_string, answer):
-    '''returns a string telling user's answer's correctness, a photoimage
-    of the answer text's background and a boolean value of answer
-    correctness. requires the pokemon name and user input as
-    string values'''
+    '''returns a a boolean value of answer correctness. requires
+    the pokemon_full_name and user input as string values'''
 
-    background = tk.PhotoImage(file = 'src/data/png/text_background.png')
-    pokemon_split = pokemon_full_name_string.split(' ')
+    correct = False
+    pokemon_name = pokemon_full_name_string.split(' ')[0].lower()
 
-    if answer.lower() == pokemon_split[0].lower():
-        text = "CORRECT! \n It's " + pokemon_full_name_string + '!'
+    if answer.lower() == pokemon_name.lower():
         correct = True
-    else:
-        text = "WRONG! \n It's " + pokemon_full_name_string + '!'
-        correct = False
 
-    return background, text, correct
+    return correct
 
 def get_health_photoimage(player_score):
     '''returns a ready made photoimage of player's health merged with
@@ -84,26 +77,26 @@ def get_health_photoimage(player_score):
 
     heart = Image.open(heart_fp).convert('RGBA')
     noheart = Image.open(noheart_fp).convert('RGBA')
-    health_background = Image.open(background_fp).convert('RGBA')
+    health = Image.open(background_fp).convert('RGBA')
 
     if player_score.get_health() == 3:
-        health_background.paste(heart, (0, 0), heart)
-        health_background.paste(heart, (74, 0), heart)
-        health_background.paste(heart, (148, 0), heart)
+        health.paste(heart, (0, 0), heart)
+        health.paste(heart, (74, 0), heart)
+        health.paste(heart, (148, 0), heart)
     elif player_score.get_health() == 2:
-        health_background.paste(heart, (0, 0), heart)
-        health_background.paste(heart, (74, 0), heart)
-        health_background.paste(noheart, (148, 0), noheart)
+        health.paste(heart, (0, 0), heart)
+        health.paste(heart, (74, 0), heart)
+        health.paste(noheart, (148, 0), noheart)
     elif player_score.get_health() == 1:
-        health_background.paste(heart, (0, 0), heart)
-        health_background.paste(noheart, (74, 0), noheart)
-        health_background.paste(noheart, (148, 0), noheart)
+        health.paste(heart, (0, 0), heart)
+        health.paste(noheart, (74, 0), noheart)
+        health.paste(noheart, (148, 0), noheart)
     else:
-        health_background.paste(noheart, (0, 0), noheart)
-        health_background.paste(noheart, (74, 0), noheart)
-        health_background.paste(noheart, (148, 0), noheart)
+        health.paste(noheart, (0, 0), noheart)
+        health.paste(noheart, (74, 0), noheart)
+        health.paste(noheart, (148, 0), noheart)
 
-    health_photoimage = ImageTk.PhotoImage(health_background)
+    health_photoimage = ImageTk.PhotoImage(image = health)
     return health_photoimage
 
 def get_pokemon_data():

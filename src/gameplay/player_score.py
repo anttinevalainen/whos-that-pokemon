@@ -1,4 +1,4 @@
-class PlayerProgress:
+class Player:
     def __init__(self, gamertag):
         self.gamertag = str(gamertag)
         self.points = 0
@@ -10,7 +10,8 @@ class PlayerProgress:
         self.correct_answers += 1
 
     def incorrect_answer(self):
-        self.health -= 1
+        if self.health >= 1:
+            self.health -= 1
 
     def get_health(self):
         return self.health

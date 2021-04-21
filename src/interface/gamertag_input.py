@@ -1,5 +1,5 @@
 import tkinter as tk
-from gameplay.player_score import PlayerProgress
+from gameplay.player_score import Player
 import gameplay.create_widget as cw
 
 class GamertagPage:
@@ -44,7 +44,7 @@ class GamertagPage:
         )
         self.gamertag_entry.place(
             x = 60,
-            y = 225,
+            y = 180,
             width = 90,
             height = 60
         )
@@ -62,7 +62,7 @@ class GamertagPage:
         )
         self.gamertag_button.place(
             x = 150,
-            y = 225,
+            y = 180,
             width = 90,
             height = 60
         )
@@ -94,7 +94,7 @@ class GamertagPage:
 
         elif len(gamertag) == 3 and gamertag.isalpha():
             self.gamertag_input_label['text'] = 'Your gamertag\nwill be ' + gamertag
-            player_score = PlayerProgress(gamertag)
+            player_score = Player(gamertag)
 
             play_button = tk.Button(
             self.root,

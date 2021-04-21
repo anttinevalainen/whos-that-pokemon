@@ -1,7 +1,9 @@
 import unittest
 import os.path
+import tkinter as tk
 import pandas as pd
 import data.data_handling as dh
+from gameplay.player_score import Player
 
 class TestDataHandling(unittest.TestCase):
     def setUp(self):
@@ -41,12 +43,45 @@ class TestDataHandling(unittest.TestCase):
 
         pokedex_df = pd.read_csv('src/data/pokedex_list.csv', sep = ',')
 
-        for index, row in pokedex_df.iterrows():
+        for index in pokedex_df.index:
             row_pokemon = pokedex_df.at[index, 'pokemon'].lower()
             if row_pokemon == pokemon_name:
-                row_number = pokedex_df.at[index, 'pdno']
+                row_pdno = pokedex_df.at[index, 'pdno']
                 self.assertTrue(
-                    int(row_number) ==
+                    int(row_pdno) ==
                     int(pokemon_number) ==
                     int(silhouette_number)
                 )
+
+    def test_check_answer_correct_answer(self):
+        random_pokemon_fp = dh.get_random_filename()
+        pokemon_full_name = dh.get_pokemon_full_name(random_pokemon_fp)
+        pokemon_name = pokemon_full_name.split(' ')[0].lower()
+        self.assertTrue(dh.check_answer(pokemon_full_name, pokemon_name))
+
+        wrong_answer = 'angemon'
+        self.assertFalse(dh.check_answer(pokemon_full_name, wrong_answer))
+
+    def test_check_answer_incorrect_answer(self):
+        random_pokemon_fp = dh.get_random_filename()
+        pokemon_full_name = dh.get_pokemon_full_name(random_pokemon_fp)
+        wrong_answer = 'angemon'
+        self.assertFalse(dh.check_answer(pokemon_full_name, wrong_answer))
+
+    def test_photoimage_functions_return_photoimages(self):
+        tk.Tk()
+        player_score = Player('AAA')
+        health_pi = dh.get_health_photoimage(player_score)
+        health_type = type(health_pi)
+
+        pokemon_fp = dh.get_random_filename()
+        pokemon_pi = dh.get_pokemon_photoimage(pokemon_fp)
+        pokemon_type = type(pokemon_pi)
+
+        silhouette_fp = dh.get_silhouette(pokemon_fp)
+        silhouette_pi = dh.get_silhouette_photoimage(silhouette_fp)
+        silhouette_type = type(silhouette_pi)
+
+        self.assertTrue(health_type ==
+                        pokemon_type ==
+                        silhouette_type)

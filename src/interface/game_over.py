@@ -1,5 +1,5 @@
 import tkinter as tk
-from gameplay.player_score import PlayerProgress
+from gameplay.player_score import Player
 import gameplay.create_widget as cw
 import gameplay.hiscore_save as hs
 import data.data_handling as dh
@@ -99,14 +99,14 @@ class GameOverPage:
 
     def try_again_pressed(self):
         gamertag = self.player_score.get_gamertag
-        player_score = PlayerProgress(gamertag)
+        player_score = Player(gamertag)
         self.gamertag_button_action(player_score)
 
     def send_hiscore_pressed(self):
         gamertag = str(self.player_score.get_gamertag())
         points = int(self.player_score.get_points())
-        correct_answers = int(self.player_score.get_correct_answers())
-        hs.add_hiscore(gamertag, points, correct_answers)
+        answers = int(self.player_score.get_correct_answers())
+        hs.add_hiscore(gamertag, points, answers)
 
         self.game_over_label['text'] = 'Hiscore sent! Return to index?'
         self.index_button.place(
