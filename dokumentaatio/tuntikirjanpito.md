@@ -20,3 +20,7 @@
 | 20.4.| 3    | Testien kirjoittamista                                         |
 | 20.4.| 1    | Tiedostosijaintien siivoamista ja palautuksen valmistelu       |
 | 21.4.| 5    | Testien kirjoittamista ja koodin siivoamista                   |
+| 23.4.| 2    | Testien kirjoittaminen                                         |
+| 24.4.| 2    | Koodin siivoaminen ja testien fiksailu sen jäljiltä            |
+| 27.4.| 4    | Sovelluksen toiminnallisuuden kasvattaminen ja testien luonti  |
+| 27.4.| 2    | Sekvenssidiagrammin ja Release 1 valmistelu                    |
