@@ -1,5 +1,5 @@
 import tkinter as tk
-import gameplay.create_widget as cw
+import interface.create_widget as cw
 
 class IndexPage:
 

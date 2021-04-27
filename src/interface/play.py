@@ -1,6 +1,6 @@
 import tkinter as tk
 import data.data_handling as dh
-import gameplay.create_widget as cw
+import interface.create_widget as cw
 
 class PlayPage:
 
@@ -16,23 +16,19 @@ class PlayPage:
         self.frame = tk.Frame(self.root)
 
         cw.create_background_label(self.root)
-
-        (self.pokemon_full_name_string, self.silhouette_photoimage,
-        self.pokemon_photoimage) = dh.get_pokemon_data()
-
+        (self.pokemon_full_name, self.silhouette_photoimage,
+        self.pokemon_photoimage) = dh.get_pokemon_data(self.player_score.get_gamemode())
         self.health_photoimage = dh.get_health_photoimage(self.player_score)
 
-        cw.create_progress_label(self.root, self.player_score)
-
         cw.create_health_label(self.root, self.health_photoimage)
-
+        cw.create_progress_label(self.root, self.player_score)
         cw.create_pokemon_label(self.root, self.silhouette_photoimage)
 
         index_button = tk.Button(
             self.root,
             text = 'Return to index!',
-            bg = '#ec3025',
-            fg = '#0f4d88',
+            bg = '#0f4d88',
+            fg = '#ffcb05',
             font = ('Helvetica', 10),
             command  = self.index_button_action
         )
@@ -73,15 +69,15 @@ class PlayPage:
 
         self.background = tk.PhotoImage(file = 'src/data/png/text_background.png')
 
-        if dh.check_answer(self.pokemon_full_name_string, self.answer.get()):
+        if dh.check_answer(self.pokemon_full_name, self.answer.get()):
 
             self.player_score.correct_answer()
-            self.text = "CORRECT! \n It's " + self.pokemon_full_name_string + '!'
+            self.text = "CORRECT! \n It's " + self.pokemon_full_name.upper() + '!'
             cw.create_answer_canvas(self.root, self.text, self.background)
 
         else:
             self.player_score.incorrect_answer()
-            self.text = "WRONG! \n It's " + self.pokemon_full_name_string + '!'
+            self.text = "WRONG! \n It's " + self.pokemon_full_name.upper() + '!'
             cw.create_answer_canvas(self.root, self.text, self.background)
 
         cw.create_pokemon_label(self.root, self.pokemon_photoimage)

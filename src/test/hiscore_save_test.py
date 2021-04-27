@@ -1,12 +1,15 @@
 import unittest
 import os
+import random as rd
 import pandas as pd
 import gameplay.hiscore_save as hs
 from gameplay.player_score import Player
+from gameplay.gamemode import Gamemode
 
 class TestHiscoreSave(unittest.TestCase):
     def setUp(self):
         self.table_filepath = 'src/data/hiscores.csv'
+        print('Hiscore save test initiation')
 
     def test_initialization_creates_hiscore_table_if_doesnt_exist(self):
         if os.path.exists(self.table_filepath):
@@ -18,11 +21,13 @@ class TestHiscoreSave(unittest.TestCase):
         row_gamertag = hiscore_df.at[3, 'gamertag']
         row_points = hiscore_df.at[3, 'points']
         row_answers = hiscore_df.at[3, 'correct_answers']
+        row_gens = hiscore_df.at[3, 'gens']
 
         self.assertTrue(os.path.exists(self.table_filepath))
         self.assertTrue(row_gamertag == 'NAN')
         self.assertTrue(row_points == 0)
         self.assertTrue(row_answers == 0)
+        self.assertTrue(row_gens == 6)
 
         try:
             table_copy.to_csv(self.table_filepath, index = False)
@@ -36,7 +41,8 @@ class TestHiscoreSave(unittest.TestCase):
 
         data = {'gamertag':['AAA', 'AAA', 'AAA', 'AAA', 'AAA', 'AAA', 'AAA', 'AAA', 'AAA'],
                 'points':[1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000],
-                'correct_answers':[1, 1, 1, 1, 1, 1, 1, 1, 1]}
+                'correct_answers':[1, 1, 1, 1, 1, 1, 1, 1, 1],
+                'gens':[6,6,6,6,6,6,6,6,6]}
         hiscore_df = pd.DataFrame(data)
         hiscore_df.to_csv(self.table_filepath, index = False)
 
@@ -44,9 +50,11 @@ class TestHiscoreSave(unittest.TestCase):
         row_gamertag = hiscore_df.at[3, 'gamertag']
         row_points = hiscore_df.at[3, 'points']
         row_answers = hiscore_df.at[3, 'correct_answers']
+        row_gens = hiscore_df.at[3, 'gens']
         self.assertTrue(row_gamertag == 'AAA')
         self.assertTrue(row_points == 1000)
         self.assertTrue(row_answers == 1)
+        self.assertTrue(row_gens == 6)
 
         try:
             table_copy.to_csv(self.table_filepath, index = False)
@@ -61,22 +69,24 @@ class TestHiscoreSave(unittest.TestCase):
         gamertags = ['AAA', 'AAA', 'AAA', 'AAA', 'AAA', 'AAA', 'AAA', 'AAA', 'AAA', 'AAA']
         points = [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000]
         answers = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        gens = [6,6,6,6,6,6,6,6,6,6]
         fourth_values = ['?', '?', '?', '?', '?', '?', '?', '?', '?', '?']
         data = {'gamertag':gamertags,
                 'points': points,
                 'correct_answers': answers,
+                'gens': gens,
                 'fourth_value': fourth_values}
         hiscore_df = pd.DataFrame(data)
         hiscore_df.to_csv(self.table_filepath, index = False)
 
         self.assertEqual(len(hiscore_df), 10)
-        self.assertEqual(len(hiscore_df.columns), 4)
+        self.assertEqual(len(hiscore_df.columns), 5)
 
         hs.initialize_hiscore_dataframe()
         hiscore_df = pd.read_csv(self.table_filepath, sep=',')
 
         self.assertEqual(len(hiscore_df), 9)
-        self.assertEqual(len(hiscore_df.columns), 3)
+        self.assertEqual(len(hiscore_df.columns), 4)
 
         try:
             table_copy.to_csv(self.table_filepath, index = False)
@@ -101,9 +111,10 @@ class TestHiscoreSave(unittest.TestCase):
             table_copy = pd.read_csv(self.table_filepath, sep=',')
             os.remove(self.table_filepath)
 
-        data = {'gamertag':['AAA', 'AAA', 'AAA', 'AAA', 'AAA', 'AAA', 'AAA', 'AAA', 'AAA'],
-                'points':[10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000],
-                'correct_answers':[10, 10, 10, 10, 10, 10, 10, 10, 10]}
+        data = {'gamertag': ['AAA', 'AAA', 'AAA', 'AAA', 'AAA', 'AAA', 'AAA', 'AAA', 'AAA'],
+                'points': [10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000],
+                'correct_answers': [10, 10, 10, 10, 10, 10, 10, 10, 10],
+                'gens': [6,6,6,6,6,6,6,6,6]}
         hiscore_df = pd.DataFrame(data)
         hiscore_df.to_csv(self.table_filepath, index = False)
 
@@ -127,7 +138,17 @@ class TestHiscoreSave(unittest.TestCase):
             table_copy = pd.read_csv(self.table_filepath, sep=',')
             os.remove(self.table_filepath)
 
-        new_player = Player('EVO')
+        generation_choice = []
+        generation_choice.append(1)
+
+        while len(generation_choice) < 6:
+            random_number = rd.randint(0, 1)
+            generation_choice.append(random_number)
+        rd.shuffle(generation_choice)
+
+        new_gamemode = Gamemode(generation_choice)
+        new_player = Player('FFF', new_gamemode)
+
         new_player.correct_answer()
 
         new_gamertag = new_player.get_gamertag()
@@ -136,11 +157,12 @@ class TestHiscoreSave(unittest.TestCase):
 
         data = {'gamertag':['AAA', 'AAA', 'AAA', 'AAA', 'AAA', 'AAA', 'AAA', 'AAA', 'AAA'],
                 'points':[10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000],
-                'correct_answers':[10, 10, 10, 10, 10, 10, 10, 10, 10]}
+                'correct_answers':[10, 10, 10, 10, 10, 10, 10, 10, 10],
+                'gens': [6,6,6,6,6,6,6,6,6]}
         hiscore_df = pd.DataFrame(data)
         hiscore_df.to_csv(self.table_filepath, index = False)
 
-        hs.add_hiscore(new_gamertag, new_points, new_answers)
+        hs.add_hiscore(new_player)
 
         for i in hiscore_df.index:
             row_gamertag = hiscore_df.at[i, 'gamertag']
@@ -162,27 +184,20 @@ class TestHiscoreSave(unittest.TestCase):
 
         data = {'gamertag':['EKA', 'TOK', 'KOL', 'NEL', 'VII', 'KUU', 'SEI', 'KAH', 'YHD'],
                 'points':[1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000],
-                'correct_answers':[1, 2, 3, 4, 5, 6, 7, 8, 9]}
+                'correct_answers':[1, 2, 3, 4, 5, 6, 7, 8, 9],
+                'gens': [6,6,6,6,6,6,6,6,6]}
         hiscore_df = pd.DataFrame(data)
         hiscore_df.to_csv(self.table_filepath, index = False)
         print(len(hiscore_df))
         print(len(hiscore_df.columns))
 
-        new_player = Player('AAA')
+        generation_choice = [1,1,1,1,1,1]
+        new_gamemode = Gamemode(generation_choice)
+        new_player = Player('AAA', new_gamemode)
         for i in range(10):
             new_player.correct_answer()
 
-        new_gamertag = new_player.get_gamertag()
-        new_points = new_player.get_points()
-        new_answers = new_player.get_correct_answers()
-        print(new_gamertag)
-        print(type(new_gamertag))
-        print(new_points)
-        print(type(new_points))
-        print(new_answers)
-        print(type(new_answers))
-
-        hs.add_hiscore(new_gamertag, new_points, new_answers)
+        hs.add_hiscore(new_player)
         hiscore_df = pd.read_csv(self.table_filepath, sep=',')
 
         for i in hiscore_df.index:

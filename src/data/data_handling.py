@@ -2,9 +2,9 @@ import random
 import pandas as pd
 from PIL import Image, ImageTk
 
-def get_random_filename():
+def get_random_filename(gamemode):
     '''Returns the png-filename of a random pokemon'''
-    directory_df = pd.read_csv('src/data/directory_list.csv', sep = ',')
+    directory_df = gamemode.get_directory_dataframe()
     random_integer = random.randint(0,len(directory_df)-1)
     filename = directory_df.at[random_integer, 'file']
 
@@ -20,20 +20,23 @@ def get_pokemon_full_name(filename):
         Requires the filename of said pokemon (string)'''
     pokedex_df = pd.read_csv('src/data/pokedex_list.csv', sep = ',')
     filename = filename[:-4]
-    filename_s = filename.split('-')
-    filenumber = int(filename_s[0])-1
-
-    if len(filename_s) > 1:
-        second_part = filename_s[1]
-        first_part = pokedex_df.at[filenumber, 'pokemon']
-
-        pokemon_full_name_string = first_part + ' (' + second_part + ')'
-
+    if filename == '474':
+        filenumber = int(filename)-1
+        pokemon_full_name = pokedex_df.at[filenumber, 'pokemon']
     else:
+        filename_s = filename.split('-')
+        filenumber = int(filename_s[0])-1
 
-        pokemon_full_name_string = pokedex_df.at[filenumber, 'pokemon']
+        if len(filename_s) > 1:
+            second_part = filename_s[1]
+            first_part = pokedex_df.at[filenumber, 'pokemon']
 
-    return pokemon_full_name_string
+            pokemon_full_name = first_part + ' (' + second_part + ')'
+
+        else:
+            pokemon_full_name = pokedex_df.at[filenumber, 'pokemon']
+
+    return pokemon_full_name
 
 def get_silhouette_photoimage(silhouette_filename):
     '''returns a ready made photoimage of the silhouette merged with \
@@ -55,14 +58,31 @@ def get_pokemon_photoimage(filename):
     pokemon_photoimage = ImageTk.PhotoImage(image_background)
     return pokemon_photoimage
 
-def check_answer(pokemon_full_name_string, answer):
+def check_answer(pokemon_full_name, answer):
     '''returns a a boolean value of answer correctness. requires
     the pokemon_full_name and user input as string values'''
 
     correct = False
-    pokemon_name = pokemon_full_name_string.split(' ')[0].lower()
+    correct_answer = ''
+    user_answer = ''
+    pokemon_full_name = pokemon_full_name.lower()
+    answer = answer.lower()
 
-    if answer.lower() == pokemon_name.lower():
+    if (pokemon_full_name == 'mr. mime' or
+        pokemon_full_name == 'mime jr.'):
+        pokemon_name = pokemon_full_name
+    else:
+        pokemon_name = pokemon_full_name.split(' ')[0]
+
+    for character in pokemon_name:
+        if character.isalnum():
+            correct_answer += character
+
+    for character in answer:
+        if character.isalnum():
+            user_answer += character
+
+    if correct_answer == user_answer:
         correct = True
 
     return correct
@@ -99,14 +119,14 @@ def get_health_photoimage(player_score):
     health_photoimage = ImageTk.PhotoImage(image = health)
     return health_photoimage
 
-def get_pokemon_data():
+def get_pokemon_data(gamemode):
     '''Returns Pokémon name(string), Pokémon full name (string),
     silhouette image w/ background (photoimage) and Pokémon image
     w/ background (photoimage)'''
-    random_filename = get_random_filename()
+    random_filename = get_random_filename(gamemode)
     silhouette_filename = get_silhouette(random_filename)
-    pokemon_full_name_string = get_pokemon_full_name(random_filename)
+    pokemon_full_name = get_pokemon_full_name(random_filename)
     silhouette_photoimage = get_silhouette_photoimage(silhouette_filename)
     pokemon_photoimage = get_pokemon_photoimage(random_filename)
 
-    return pokemon_full_name_string, silhouette_photoimage, pokemon_photoimage
+    return pokemon_full_name, silhouette_photoimage, pokemon_photoimage

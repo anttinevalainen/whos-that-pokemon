@@ -38,7 +38,7 @@ def create_progress_label(frame, player_score):
             font = ('Helvetica', 13)
     )
     progress_label.place(
-        x = 240,
+        x = 340,
         y = 20,
         width = 160,
         height = 45
@@ -52,7 +52,6 @@ def create_background_label(frame):
 
 
 def create_answer_canvas(frame, text, background):
-
     text_canvas = tk.Canvas(
         frame,
         bd = 0,
@@ -79,9 +78,8 @@ def create_answer_canvas(frame, text, background):
     )
 
 def create_hiscore_table(frame):
-
     hiscore_df = initialize_hiscore_dataframe().sort_values(by = ['points'], ascending = False)
-    cell_width = 85
+    cell_width = 65
     cell_height = 30
     cell_x = 30
     cell_y = 120
@@ -125,6 +123,19 @@ def create_hiscore_table(frame):
         x = cell_x + cell_width*2,
         y = cell_y - cell_height
     )
+    gens_title = tk.Label(
+        frame,
+        text = 'Gens',
+        bg = '#0f4d88',
+        fg = '#ffcb05',
+        font = ('Helvetica', 10, 'bold')
+    )
+    gens_title.place(
+        width = cell_width,
+        height = cell_height,
+        x = cell_x + cell_width*3,
+        y = cell_y - cell_height
+    )
 
     row1_cell1 = tk.Label(
         frame,
@@ -165,6 +176,20 @@ def create_hiscore_table(frame):
         x = cell_x + cell_width*2,
         y = cell_y
     )
+    row1_cell4 = tk.Label(
+        frame,
+        text = str(hiscore_df.iloc[0][3]),
+        bg = '#ec3025',
+        fg = '#0f4d88',
+        font = ('Helvetica', 10)
+    )
+    row1_cell4.place(
+        width = cell_width,
+        height = cell_height,
+        x = cell_x + cell_width*3,
+        y = cell_y
+    )
+
     row2_cell1 = tk.Label(
         frame,
         text = str(hiscore_df.iloc[1][0]),
@@ -204,6 +229,20 @@ def create_hiscore_table(frame):
         x = cell_x + cell_width*2,
         y = cell_y + cell_height
     )
+    row2_cell4 = tk.Label(
+        frame,
+        text = str(hiscore_df.iloc[1][3]),
+        bg = '#0f4d88',
+        fg = '#ffcb05',
+        font = ('Helvetica', 10)
+    )
+    row2_cell4.place(
+        width = cell_width,
+        height = cell_height,
+        x = cell_x + cell_width*3,
+        y = cell_y + cell_height
+    )
+
     row3_cell1 = tk.Label(
         frame,
         text = str(hiscore_df.iloc[2][0]),
@@ -243,6 +282,20 @@ def create_hiscore_table(frame):
         x = cell_x + cell_width*2,
         y = cell_y + cell_height*2
     )
+    row3_cell4 = tk.Label(
+        frame,
+        text = str(hiscore_df.iloc[2][3]),
+        bg = '#ec3025',
+        fg = '#0f4d88',
+        font = ('Helvetica', 10)
+    )
+    row3_cell4.place(
+        width = cell_width,
+        height = cell_height,
+        x = cell_x + cell_width*3,
+        y = cell_y + cell_height*2
+    )
+
     row4_cell1 = tk.Label(
         frame,
         text = str(hiscore_df.iloc[3][0]),
@@ -282,6 +335,20 @@ def create_hiscore_table(frame):
         x = cell_x + cell_width*2,
         y = cell_y + cell_height*3
     )
+    row4_cell4 = tk.Label(
+        frame,
+        text = str(hiscore_df.iloc[3][3]),
+        bg = '#0f4d88',
+        fg = '#ffcb05',
+        font = ('Helvetica', 10)
+    )
+    row4_cell4.place(
+        width = cell_width,
+        height = cell_height,
+        x = cell_x + cell_width*3,
+        y = cell_y + cell_height*3
+    )
+
     row5_cell1 = tk.Label(
         frame,
         text = str(hiscore_df.iloc[4][0]),
@@ -319,6 +386,19 @@ def create_hiscore_table(frame):
         width = cell_width,
         height = cell_height,
         x = cell_x + cell_width*2,
+        y = cell_y + cell_height*4
+    )
+    row5_cell4 = tk.Label(
+        frame,
+        text = str(hiscore_df.iloc[4][3]),
+        bg = '#ec3025',
+        fg = '#0f4d88',
+        font = ('Helvetica', 10)
+    )
+    row5_cell4.place(
+        width = cell_width,
+        height = cell_height,
+        x = cell_x + cell_width*3,
         y = cell_y + cell_height*4
     )
     row6_cell1 = tk.Label(
@@ -360,6 +440,19 @@ def create_hiscore_table(frame):
         x = cell_x + cell_width*2,
         y = cell_y + cell_height*5
     )
+    row6_cell4 = tk.Label(
+        frame,
+        text = str(hiscore_df.iloc[5][3]),
+        bg = '#0f4d88',
+        fg = '#ffcb05',
+        font = ('Helvetica', 10)
+    )
+    row6_cell4.place(
+        width = cell_width,
+        height = cell_height,
+        x = cell_x + cell_width*3,
+        y = cell_y + cell_height*5
+    )
     row7_cell1 = tk.Label(
         frame,
         text = str(hiscore_df.iloc[6][0]),
@@ -397,6 +490,19 @@ def create_hiscore_table(frame):
         width = cell_width,
         height = cell_height,
         x = cell_x + cell_width*2,
+        y = cell_y + cell_height*6
+    )
+    row7_cell4 = tk.Label(
+        frame,
+        text = str(hiscore_df.iloc[6][3]),
+        bg = '#ec3025',
+        fg = '#0f4d88',
+        font = ('Helvetica', 10)
+    )
+    row7_cell4.place(
+        width = cell_width,
+        height = cell_height,
+        x = cell_x + cell_width*3,
         y = cell_y + cell_height*6
     )
     row8_cell1 = tk.Label(
@@ -438,6 +544,19 @@ def create_hiscore_table(frame):
         x = cell_x + cell_width*2,
         y = cell_y + cell_height*7
     )
+    row8_cell4 = tk.Label(
+        frame,
+        text = str(hiscore_df.iloc[7][3]),
+        bg = '#0f4d88',
+        fg = '#ffcb05',
+        font = ('Helvetica', 10)
+    )
+    row8_cell4.place(
+        width = cell_width,
+        height = cell_height,
+        x = cell_x + cell_width*3,
+        y = cell_y + cell_height*7
+    )
     row9_cell1 = tk.Label(
         frame,
         text = str(hiscore_df.iloc[8][0]),
@@ -475,5 +594,18 @@ def create_hiscore_table(frame):
         width = cell_width,
         height = cell_height,
         x = cell_x + cell_width*2,
+        y = cell_y + cell_height*8
+    )
+    row9_cell4 = tk.Label(
+        frame,
+        text = str(hiscore_df.iloc[8][3]),
+        bg = '#ec3025',
+        fg = '#0f4d88',
+        font = ('Helvetica', 10)
+    )
+    row9_cell4.place(
+        width = cell_width,
+        height = cell_height,
+        x = cell_x + cell_width*3,
         y = cell_y + cell_height*8
     )

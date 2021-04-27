@@ -4,23 +4,30 @@ import tkinter as tk
 import pandas as pd
 import data.data_handling as dh
 from gameplay.player_score import Player
+from gameplay.gamemode import Gamemode
 
 class TestDataHandling(unittest.TestCase):
     def setUp(self):
-        print('setup')
+        print('Data handling test initiation')
 
     def test_randomizer_returns_existing_filename(self):
-        filename = dh.get_random_filename()
+        generation_choice = [1,0,1,0,1,0]
+        new_gamemode = Gamemode(generation_choice)
+        filename = dh.get_random_filename(new_gamemode)
         filepath = 'src/data/png/' + filename
         self.assertTrue(os.path.isfile(filepath))
 
     def test_get_silhouette_returns_existing_filename(self):
-        filename = dh.get_random_filename()
+        generation_choice = [1,0,0,0,1,0]
+        new_gamemode = Gamemode(generation_choice)
+        filename = dh.get_random_filename(new_gamemode)
         silhouette_filename = dh.get_silhouette(filename)
         self.assertTrue(os.path.isfile(silhouette_filename))
 
     def test_get_name_matches_with_pokemon_number(self):
-        filename = dh.get_random_filename()
+        generation_choice = [1,1,1,0,1,0]
+        new_gamemode = Gamemode(generation_choice)
+        filename = dh.get_random_filename(new_gamemode)
         pokedex_df = pd.read_csv('src/data/pokedex_list.csv', sep = ',')
 
         number = filename[:-4]
@@ -32,8 +39,16 @@ class TestDataHandling(unittest.TestCase):
 
         self.assertTrue(pokemon_by_number == name)
 
+    def test_get_name_returns_two_part_name(self):
+        megaevol_fp = '3-mega.png'
+        correct_full_name = 'venusaur (mega)'
+        full_name = dh.get_pokemon_full_name(megaevol_fp).lower()
+        self.assertEqual(correct_full_name, full_name)
+
     def test_data_handling_gives_data_of_single_pokemon(self):
-        random_pokemon_fp = dh.get_random_filename()
+        generation_choice = [1,0,1,0,1,1]
+        new_gamemode = Gamemode(generation_choice)
+        random_pokemon_fp = dh.get_random_filename(new_gamemode)
         random_silhouette_fp = dh.get_silhouette(random_pokemon_fp)
         pokemon_full_name = dh.get_pokemon_full_name(random_pokemon_fp)
 
@@ -54,7 +69,9 @@ class TestDataHandling(unittest.TestCase):
                 )
 
     def test_check_answer_correct_answer(self):
-        random_pokemon_fp = dh.get_random_filename()
+        generation_choice = [1,1,1,1,1,0]
+        new_gamemode = Gamemode(generation_choice)
+        random_pokemon_fp = dh.get_random_filename(new_gamemode)
         pokemon_full_name = dh.get_pokemon_full_name(random_pokemon_fp)
         pokemon_name = pokemon_full_name.split(' ')[0].lower()
         self.assertTrue(dh.check_answer(pokemon_full_name, pokemon_name))
@@ -63,18 +80,35 @@ class TestDataHandling(unittest.TestCase):
         self.assertFalse(dh.check_answer(pokemon_full_name, wrong_answer))
 
     def test_check_answer_incorrect_answer(self):
-        random_pokemon_fp = dh.get_random_filename()
+        new_gamemode = Gamemode([0,0,0,1,0,1])
+        random_pokemon_fp = dh.get_random_filename(new_gamemode)
         pokemon_full_name = dh.get_pokemon_full_name(random_pokemon_fp)
         wrong_answer = 'angemon'
         self.assertFalse(dh.check_answer(pokemon_full_name, wrong_answer))
 
     def test_photoimage_functions_return_photoimages(self):
         tk.Tk()
-        player_score = Player('AAA')
-        health_pi = dh.get_health_photoimage(player_score)
-        health_type = type(health_pi)
 
-        pokemon_fp = dh.get_random_filename()
+        generation_choice = [1,0,0,0,0,0]
+        new_gamemode = Gamemode(generation_choice)
+        new_player = Player('AAA', new_gamemode)
+
+        three_heart_pi = dh.get_health_photoimage(new_player)
+        three_heart_type = type(three_heart_pi)
+
+        new_player.incorrect_answer()
+        two_heart_pi = dh.get_health_photoimage(new_player)
+        two_heart_type = type(two_heart_pi)
+
+        new_player.incorrect_answer()
+        one_heart_pi = dh.get_health_photoimage(new_player)
+        one_heart_type = type(one_heart_pi)
+
+        new_player.incorrect_answer()
+        zero_heart_pi = dh.get_health_photoimage(new_player)
+        zero_heart_type = type(zero_heart_pi)
+
+        pokemon_fp = dh.get_random_filename(new_player.get_gamemode())
         pokemon_pi = dh.get_pokemon_photoimage(pokemon_fp)
         pokemon_type = type(pokemon_pi)
 
@@ -82,6 +116,45 @@ class TestDataHandling(unittest.TestCase):
         silhouette_pi = dh.get_silhouette_photoimage(silhouette_fp)
         silhouette_type = type(silhouette_pi)
 
-        self.assertTrue(health_type ==
+        self.assertTrue(three_heart_type ==
+                        two_heart_type ==
+                        one_heart_type ==
+                        zero_heart_type ==
                         pokemon_type ==
                         silhouette_type)
+
+    def test_random_filepath_matches_with_gamemode(self):
+        gamemode1 = Gamemode([1,1,1,1,1,1])
+        gamemode2 = Gamemode([1,0,0,0,0,0])
+        gamemode3 = Gamemode([1,0,0,1,0,1])
+
+        number1 = int(dh.get_random_filename(gamemode1)[:-4].split('-')[0])
+        number2 = int(dh.get_random_filename(gamemode2)[:-4].split('-')[0])
+        number3 = int(dh.get_random_filename(gamemode3)[:-4].split('-')[0])
+
+        self.assertGreaterEqual(number1, 1)
+        self.assertLessEqual(number1, 721)
+
+        self.assertGreaterEqual(number2, 1)
+        self.assertLessEqual(number2, 151)
+
+        self.assertTrue((number3 >= 1 and number3 <= 151) or
+                        (number3 >= 387 and number3 <= 493) or
+                        (number3 >= 650 and number3 <= 721))
+
+    def test_mrmime_mimejr_and_porygonz(self):
+        mrmime_fp = '122.png'
+        mimejr_fp = '439.png'
+        porygonz_fp = '474.png'
+
+        porygonz_full_name = dh.get_pokemon_full_name(porygonz_fp).lower()
+        mrmime_full_name = dh.get_pokemon_full_name(mrmime_fp).lower()
+        mimejr_full_name = dh.get_pokemon_full_name(mimejr_fp).lower()
+
+        self.assertEqual(porygonz_full_name, 'porygon-z')
+        self.assertEqual(mrmime_full_name, 'mr. mime')
+        self.assertEqual(mimejr_full_name, 'mime jr.')
+
+        self.assertTrue(dh.check_answer(mrmime_full_name, 'mr mime'))
+        self.assertTrue(dh.check_answer(mimejr_full_name, 'mime jr'))
+        self.assertTrue(dh.check_answer(porygonz_full_name, 'porygon z'))

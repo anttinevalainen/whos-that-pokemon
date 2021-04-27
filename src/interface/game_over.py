@@ -1,6 +1,6 @@
 import tkinter as tk
 from gameplay.player_score import Player
-import gameplay.create_widget as cw
+import interface.create_widget as cw
 import gameplay.hiscore_save as hs
 import data.data_handling as dh
 
@@ -84,8 +84,8 @@ class GameOverPage:
         self.index_button = tk.Button(
             self.root,
             text = 'Return to index!',
-            bg = '#ec3025',
-            fg = '#0f4d88',
+            bg = '#0f4d88',
+            fg = '#ffcb05',
             font = ('Helvetica', 10),
             command  = self.index_button_action
         )
@@ -99,14 +99,12 @@ class GameOverPage:
 
     def try_again_pressed(self):
         gamertag = self.player_score.get_gamertag
-        player_score = Player(gamertag)
+        gamemode = self.player_score.get_gamemode()
+        player_score = Player(gamertag, gamemode)
         self.gamertag_button_action(player_score)
 
     def send_hiscore_pressed(self):
-        gamertag = str(self.player_score.get_gamertag())
-        points = int(self.player_score.get_points())
-        answers = int(self.player_score.get_correct_answers())
-        hs.add_hiscore(gamertag, points, answers)
+        hs.add_hiscore(self.player_score)
 
         self.game_over_label['text'] = 'Hiscore sent! Return to index?'
         self.index_button.place(

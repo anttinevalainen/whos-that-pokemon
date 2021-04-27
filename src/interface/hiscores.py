@@ -1,5 +1,5 @@
 import tkinter as tk
-import gameplay.create_widget as cw
+import interface.create_widget as cw
 
 class HiscorePage:
 
@@ -19,8 +19,8 @@ class HiscorePage:
         index_button = tk.Button(
             self.root,
             text = 'Return to index!',
-            bg = '#ec3025',
-            fg = '#0f4d88',
+            bg = '#0f4d88',
+            fg = '#ffcb05',
             font = ('Helvetica', 10),
             command  = self.index_button_action
         )
