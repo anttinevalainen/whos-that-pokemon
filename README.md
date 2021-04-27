@@ -18,12 +18,22 @@ Sovellus on luotu ja testattu Pythonin versiolla 3.9.2.
 - *[Sovelluksen vaatimusmäärittely](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)*
 - *[Sovellusarkkitehtuuri](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)*
 
+## Releaset
+
+- *[Release 1](https://github.com/anttinevalainen/ot-harjoitustyo/releases/tag/viikko5)*
+
 ## Asennus
 
 1. Sovelluksen riippuvuudet (dependencies) sennetaan suorittamalla juurikansiossa komento:
 
 ```bash
-poetry install
+poetry ínstall
+```
+
+2. Valmistele sovelluksen toiminta komennolla:
+
+```bash
+poetry run invoke build
 ```
 
 2. Sovellus voidaan käynnistää komennolla:
@@ -43,7 +53,7 @@ poetry run invoke test
 
 ## Testikattavuus
 
-Sovelluksen testikattavuusraportti generoidaan suorittamalla komento:
+Sovelluksen HTML-testikattavuusraportti generoidaan suorittamalla komento:
 
 ```bash
 poetry run invoke coverage-report
