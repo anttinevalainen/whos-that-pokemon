@@ -14,20 +14,26 @@ Sovelluksen tarkempi käyttöliittymäluonnos on vielä tekeillä, mutta alla ns
 
 
 ### Perusversion tarjoama toiminnallisuus
-Perusversiossa käyttäjä valitsee päävalikosta, haluaako hän tarkastella tuloksia vai siirtyä tunnistamaan Pokémoneja. (✓)
-Päävalikosta on myös mahdollista sulkea sovellus. (✓)
-Tunnistaessa käyttäjä kirjoittaa arvauksensa tekstikenttään ja lähettää vastauksen, jolloin sovellus ilmoittaa, onko vastaus oikein vai väärin. (✓)
-Kun käyttäjä vastaa oikein, sovellus ilmoittaa siitä, näyttää siluetin takana olevan Pokémonin kuvan ja siirtyy seuraavaan kuvaan. (✓)
-Kun käyttäjä vastaa väärin, sovellus ilmoittaa siitä, näyttää siluetin takana olevan Pokémonin kuvan ja ilmoittaa pelin päättymisestä.
+#### Viikkoon 4 palautukseen mennessä tehty:
+- Perusversiossa käyttäjä valitsee päävalikosta, haluaako hän tarkastella tuloksia vai siirtyä tunnistamaan Pokémoneja. (✓)
+- Päävalikosta on myös mahdollista sulkea sovellus. (✓)
+- Tunnistaessa käyttäjä kirjoittaa arvauksensa tekstikenttään ja lähettää vastauksen, jolloin sovellus ilmoittaa, onko vastaus oikein vai väärin. (✓)
+- Kun käyttäjä vastaa oikein, sovellus ilmoittaa siitä, näyttää siluetin takana olevan Pokémonin kuvan ja siirtyy seuraavaan kuvaan. (✓)
+- Kun käyttäjä vastaa väärin, sovellus ilmoittaa siitä, näyttää siluetin takana olevan Pokémonin kuvan ja ilmoittaa pelin päättymisestä.
 (Sovellukseen lisätty health-muuttuja, joka mahdollistaa kolme väärää vastausta, ennen pelin päättymistä! (✓))
-Pelin päättymisen jälkeen käyttäjä voi ilmoittaa pelaajanimensä ja lähettää tuloksensa leaderboardiin.
+- Pelin päättymisen jälkeen käyttäjä voi ilmoittaa pelaajanimensä ja lähettää tuloksensa leaderboardiin.
 (Pelaajanimi ilmoitetaan ennen kierroksen alkua ja kierroksen päättyessä, sovellus ilmoittaa onko käyttäjä saanut tarpeeksi pisteitä lähettääkseen tuloksensa leaderboardiin. (✓))
 
-Tekemättä (20.4.)
-- Ajastin arvauskierroksille ja pisteidenanto nopeuden mukaan
+#### Viikkoon 5 palautukseen mennessä tehty:
+- Sovelluksella on nyt oma gamemode-luokka, jota varten pelaaja valitsee gamertagin yhteydessä ne generaatiot, joilla haluaa sovellusta käyttää (✓)
+- Ajastimen sijaan käyttäjä saa pisteitä sen mukaan, kuinka monella generaatiolla sovellusta käytetään (50p per generaatio = 50-300p per oikea vastaus) (✓)
+- Leaderboardsiin tallennetaan myös tieto siitä, kuinka monella generaatiolla tulos on tehty (✓)
+
+Tekemättä (27.4.)
+- Ajastin arvauskierroksille ja pisteidenanto nopeuden mukaan.
 
 Mahdollisen adminkäyttäjän on mahdollista käyttää sovellusta ylläolevan selostuksen mukaisesti, mutta hän voi myös poistaa leaderboardista tuloksia pelaajanimen perusteella. Adminkäyttäjän sisällyttäminen sovellukseen on vielä harkinnassa.
-20.4. Adminkäyttäjää ei toistaiseksi luotu
+27.4. Adminkäyttäjää ei toistaiseksi luotu
 
 ### Jatkokehitysideat
 - Puuttuvien Pokémonien lisääminen sovellukseen (722-898)
