@@ -24,3 +24,4 @@
 | 24.4.| 2    | Koodin siivoaminen ja testien fiksailu sen jäljiltä            |
 | 27.4.| 4    | Sovelluksen toiminnallisuuden kasvattaminen ja testien luonti  |
 | 27.4.| 2    | Sekvenssidiagrammin ja Release 1 valmistelu                    |
+|YHT   | 71   |                                                                       |
