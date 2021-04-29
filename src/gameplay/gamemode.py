@@ -1,8 +1,9 @@
 import pandas as pd
 
 class Gamemode:
-    def __init__(self, genchoicelist):
+    def __init__(self, genchoicelist, revision):
         self.genchoicelist = genchoicelist
+        self.revision = revision
 
     def get_genchoice_list(self):
         return self.genchoicelist
@@ -50,15 +51,15 @@ class Gamemode:
             value = '1-6'
         else:
             value = ''
-        for position, item in enumerate(gen_list):
-            if len(gen_list) < 2:
-                value += item
-            elif position < len(gen_list)-2:
-                value += item + ', '
-            elif position == len(gen_list)-2:
-                value += item + ' & '
-            else:
-                value += item
+            for position, item in enumerate(gen_list):
+                if len(gen_list) < 2:
+                    value += item
+                elif position < len(gen_list)-2:
+                    value += item + ', '
+                elif position == len(gen_list)-2:
+                    value += item + ' & '
+                else:
+                    value += item
         return value
 
     def get_number_of_pokemon(self):
@@ -102,3 +103,6 @@ class Gamemode:
             elif position == 5 and item == 1:
                 number_of_gens += 1
         return number_of_gens
+
+    def get_revision(self):
+        return self.revision

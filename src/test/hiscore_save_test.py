@@ -146,7 +146,7 @@ class TestHiscoreSave(unittest.TestCase):
             generation_choice.append(random_number)
         rd.shuffle(generation_choice)
 
-        new_gamemode = Gamemode(generation_choice)
+        new_gamemode = Gamemode(generation_choice, False)
         new_player = Player('FFF', new_gamemode)
 
         new_player.correct_answer()
@@ -192,7 +192,7 @@ class TestHiscoreSave(unittest.TestCase):
         print(len(hiscore_df.columns))
 
         generation_choice = [1,1,1,1,1,1]
-        new_gamemode = Gamemode(generation_choice)
+        new_gamemode = Gamemode(generation_choice, False)
         new_player = Player('AAA', new_gamemode)
         for i in range(10):
             new_player.correct_answer()

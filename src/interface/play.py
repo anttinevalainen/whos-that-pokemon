@@ -7,6 +7,7 @@ class PlayPage:
     def __init__(self, root, player_score, index_button_action, game_over_button_action):
         self.root = root
         self.player_score = player_score
+        self.gamemode = self.player_score.get_gamemode()
         self.index_button_action = index_button_action
         self.game_over_button_action = game_over_button_action
         self.initialize()
@@ -24,15 +25,14 @@ class PlayPage:
         cw.create_progress_label(self.root, self.player_score)
         cw.create_pokemon_label(self.root, self.silhouette_photoimage)
 
-        index_button = tk.Button(
+        tk.Button(
             self.root,
             text = 'Return to index!',
             bg = '#0f4d88',
             fg = '#ffcb05',
             font = ('Helvetica', 10),
             command  = self.index_button_action
-        )
-        index_button.place(
+        ).place(
             x = 520,
             y = 20,
             width = 100,
@@ -65,21 +65,39 @@ class PlayPage:
             height = 45
         )
 
+
+
+        if self.gamemode.get_revision():
+            if (self.pokemon_full_name == 'mr. mime' or
+                self.pokemon_full_name == 'mime jr.'):
+                pokemon_name = self.pokemon_full_name
+            else:
+                pokemon_name = self.pokemon_full_name.split(' ')[0]
+            tk.Label(
+                self.root,
+                text = "Psst...! It's " + pokemon_name + '!',
+                bg = '#ec3025',
+                fg = '#0f4d88',
+                font = ('Helvetica', 10, 'bold')
+            ).place(
+                x=0,
+                y=460,
+                width=200,
+                height=20
+            )
+
     def send_answer(self):
 
         self.background = tk.PhotoImage(file = 'src/data/png/text_background.png')
 
         if dh.check_answer(self.pokemon_full_name, self.answer.get()):
-
             self.player_score.correct_answer()
             self.text = "CORRECT! \n It's " + self.pokemon_full_name.upper() + '!'
             cw.create_answer_canvas(self.root, self.text, self.background)
-
         else:
             self.player_score.incorrect_answer()
             self.text = "WRONG! \n It's " + self.pokemon_full_name.upper() + '!'
             cw.create_answer_canvas(self.root, self.text, self.background)
-
         cw.create_pokemon_label(self.root, self.pokemon_photoimage)
 
         self.send_answer_button['text'] = 'Next!'

@@ -12,21 +12,21 @@ class TestDataHandling(unittest.TestCase):
 
     def test_randomizer_returns_existing_filename(self):
         generation_choice = [1,0,1,0,1,0]
-        new_gamemode = Gamemode(generation_choice)
+        new_gamemode = Gamemode(generation_choice, False)
         filename = dh.get_random_filename(new_gamemode)
         filepath = 'src/data/png/' + filename
         self.assertTrue(os.path.isfile(filepath))
 
     def test_get_silhouette_returns_existing_filename(self):
         generation_choice = [1,0,0,0,1,0]
-        new_gamemode = Gamemode(generation_choice)
+        new_gamemode = Gamemode(generation_choice, False)
         filename = dh.get_random_filename(new_gamemode)
         silhouette_filename = dh.get_silhouette(filename)
         self.assertTrue(os.path.isfile(silhouette_filename))
 
     def test_get_name_matches_with_pokemon_number(self):
         generation_choice = [1,1,1,0,1,0]
-        new_gamemode = Gamemode(generation_choice)
+        new_gamemode = Gamemode(generation_choice, False)
         filename = dh.get_random_filename(new_gamemode)
         pokedex_df = pd.read_csv('src/data/pokedex_list.csv', sep = ',')
 
@@ -47,7 +47,7 @@ class TestDataHandling(unittest.TestCase):
 
     def test_data_handling_gives_data_of_single_pokemon(self):
         generation_choice = [1,0,1,0,1,1]
-        new_gamemode = Gamemode(generation_choice)
+        new_gamemode = Gamemode(generation_choice, False)
         random_pokemon_fp = dh.get_random_filename(new_gamemode)
         random_silhouette_fp = dh.get_silhouette(random_pokemon_fp)
         pokemon_full_name = dh.get_pokemon_full_name(random_pokemon_fp)
@@ -70,7 +70,7 @@ class TestDataHandling(unittest.TestCase):
 
     def test_check_answer_correct_answer(self):
         generation_choice = [1,1,1,1,1,0]
-        new_gamemode = Gamemode(generation_choice)
+        new_gamemode = Gamemode(generation_choice, False)
         random_pokemon_fp = dh.get_random_filename(new_gamemode)
         pokemon_full_name = dh.get_pokemon_full_name(random_pokemon_fp)
         pokemon_name = pokemon_full_name.split(' ')[0].lower()
@@ -80,7 +80,7 @@ class TestDataHandling(unittest.TestCase):
         self.assertFalse(dh.check_answer(pokemon_full_name, wrong_answer))
 
     def test_check_answer_incorrect_answer(self):
-        new_gamemode = Gamemode([0,0,0,1,0,1])
+        new_gamemode = Gamemode([0,0,0,1,0,1], False)
         random_pokemon_fp = dh.get_random_filename(new_gamemode)
         pokemon_full_name = dh.get_pokemon_full_name(random_pokemon_fp)
         wrong_answer = 'angemon'
@@ -90,7 +90,7 @@ class TestDataHandling(unittest.TestCase):
         tk.Tk()
 
         generation_choice = [1,0,0,0,0,0]
-        new_gamemode = Gamemode(generation_choice)
+        new_gamemode = Gamemode(generation_choice, False)
         new_player = Player('AAA', new_gamemode)
 
         three_heart_pi = dh.get_health_photoimage(new_player)
@@ -124,9 +124,9 @@ class TestDataHandling(unittest.TestCase):
                         silhouette_type)
 
     def test_random_filepath_matches_with_gamemode(self):
-        gamemode1 = Gamemode([1,1,1,1,1,1])
-        gamemode2 = Gamemode([1,0,0,0,0,0])
-        gamemode3 = Gamemode([1,0,0,1,0,1])
+        gamemode1 = Gamemode([1,1,1,1,1,1], False)
+        gamemode2 = Gamemode([1,0,0,0,0,0], False)
+        gamemode3 = Gamemode([1,0,0,1,0,1], False)
 
         number1 = int(dh.get_random_filename(gamemode1)[:-4].split('-')[0])
         number2 = int(dh.get_random_filename(gamemode2)[:-4].split('-')[0])

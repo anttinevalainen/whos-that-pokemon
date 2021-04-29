@@ -221,7 +221,46 @@ class GamertagPage:
             height = 60
         )
 
+        self.revision_var = tk.IntVar(value=0)
+        tk.Checkbutton(
+            self.root,
+            text = 'REVISION MODE*',
+            bg = '#0f4d88',
+            fg = '#ffcb05',
+            font = (
+                'Helvetica',
+                10,
+                'bold'
+            ),
+            variable = self.revision_var
+        ).place(
+            x = 80,
+            y = 420,
+            width = 140,
+            height= 30
+        )
+        tk.Label(
+            self.root,
+            text = ('*In revision mode, name of each pokemon ' +
+                    'will be displayed on the screen.\n' +
+                    'When using the app in revision mode, ' +
+                    'your score cannot be sent to hiscores'),
+            bg = '#0f4d88',
+            fg = '#ffcb05',
+            font = (
+                'Helvetica',
+                7,
+                'bold'
+            )
+        ).place(
+            x = 290,
+            y = 455,
+            width = 350,
+            height = 25
+        )
+
     def send_gamertag(self):
+        revision = False
         gamertag = str(self.gamertag_entry.get().upper())
 
         if gamertag == 'KKK':
@@ -237,6 +276,8 @@ class GamertagPage:
                                 self.gen_two_var.get(),self.gen_three_var.get(),
                                 self.gen_four_var.get(),self.gen_five_var.get(),
                                 self.gen_six_var.get()))
+            if self.revision_var.get() == 1:
+                revision = True
 
 
             gen_value = 0
@@ -245,15 +286,10 @@ class GamertagPage:
             if gen_value < 1:
                 self.gamertag_input_label['text'] = 'Choose at least\none generation!'
             else:
-                if gen_value > 5:
-                    new_gamemode = Gamemode(self.gen_choice)
-                    player_score = Player(gamertag, new_gamemode)
-                    self.checkbox_info_label['text'] = ('Generations chosen:\n1-6')
-                else:
-                    new_gamemode = Gamemode(self.gen_choice)
-                    player_score = Player(gamertag, new_gamemode)
-                    self.checkbox_info_label['text'] = ('Generations chosen: \n' +
-                                                        new_gamemode.get_generations_string())
+                new_gamemode = Gamemode(self.gen_choice, revision)
+                player_score = Player(gamertag, new_gamemode)
+                self.checkbox_info_label['text'] = ('Generations chosen: \n' +
+                                                    new_gamemode.get_generations_string())
 
                 play_button = tk.Button(
                 self.root,

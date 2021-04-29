@@ -16,7 +16,7 @@ class TestPlayerScore(unittest.TestCase):
             generation_choice.append(random_number)
         rd.shuffle(generation_choice)
 
-        new_gamemode = Gamemode(generation_choice)
+        new_gamemode = Gamemode(generation_choice, False)
         new_player = Player('FFF', new_gamemode)
 
         gamertag = new_player.get_gamertag()
@@ -41,7 +41,7 @@ class TestPlayerScore(unittest.TestCase):
             generation_choice.append(random_number)
         rd.shuffle(generation_choice)
 
-        new_gamemode = Gamemode(generation_choice)
+        new_gamemode = Gamemode(generation_choice, False)
         new_player = Player('FFF', new_gamemode)
 
         new_player.correct_answer()
@@ -77,7 +77,7 @@ class TestPlayerScore(unittest.TestCase):
             generation_choice.append(random_number)
         rd.shuffle(generation_choice)
 
-        new_gamemode = Gamemode(generation_choice)
+        new_gamemode = Gamemode(generation_choice, False)
         new_player = Player('FFF', new_gamemode)
 
         new_player.incorrect_answer()
@@ -100,7 +100,7 @@ class TestPlayerScore(unittest.TestCase):
             generation_choice.append(random_number)
         rd.shuffle(generation_choice)
 
-        new_gamemode = Gamemode(generation_choice)
+        new_gamemode = Gamemode(generation_choice, False)
         new_player = Player('FFF', new_gamemode)
 
         new_player.incorrect_answer()
@@ -113,23 +113,23 @@ class TestPlayerScore(unittest.TestCase):
 
     def test_gamemode_gives_correct_points(self):
         generation_choice1 = [1,1,1,1,1,0]
-        gamemode1 = Gamemode(generation_choice1)
+        gamemode1 = Gamemode(generation_choice1, False)
         player1 = Player('AAA', gamemode1)
 
         generation_choice2 = [1,1,1,1,0,0]
-        gamemode2 = Gamemode(generation_choice2)
+        gamemode2 = Gamemode(generation_choice2, False)
         player2 = Player('BBB', gamemode2)
 
         generation_choice3 = [1,1,1,0,0,0]
-        gamemode3 = Gamemode(generation_choice3)
+        gamemode3 = Gamemode(generation_choice3, False)
         player3 = Player('CCC', gamemode3)
 
         generation_choice4 = [1,1,0,0,0,0]
-        gamemode4 = Gamemode(generation_choice4)
+        gamemode4 = Gamemode(generation_choice4, False)
         player4 = Player('DDD', gamemode4)
 
         generation_choice5 = [1,0,0,0,0,0]
-        gamemode5 = Gamemode(generation_choice5)
+        gamemode5 = Gamemode(generation_choice5, False)
         player5 = Player('EEE', gamemode5)
 
         player1.correct_answer()
@@ -152,7 +152,7 @@ class TestPlayerScore(unittest.TestCase):
             generation_choice.append(random_number)
         rd.shuffle(generation_choice)
 
-        new_gamemode = Gamemode(generation_choice)
+        new_gamemode = Gamemode(generation_choice, False)
         new_player = Player('FFF', new_gamemode)
 
         new_player.correct_answer()
