@@ -31,6 +31,7 @@ Sovelluksen tarkempi käyttöliittymäluonnos on vielä tekeillä, mutta alla ns
 
 #### Viikkoon 5 palautukseen mennessä tehty:
 - Sovellukseen on lisätty revision-mode, joka helpottaa testausta oikein ja väärin vastatessa. Revision modessa vastaukset näkyvät vastausalueen alapuolella. Revision modessa tehtyjä ennätyksiä ei ole mahdollista lähettää leaderboardsiin. (✓)
+    - Revision mode otettu mukaan myös Viikko5 -merkittyyn releaseen (29.4.)
 
 Tekemättä (27.4.)
 - Ajastin arvauskierroksille ja pisteidenanto nopeuden mukaan.
