@@ -92,7 +92,7 @@ class GameOverPage:
                                             'Try again?')
 
     def try_again_pressed(self):
-        gamertag = self.player_score.get_gamertag
+        gamertag = self.player_score.get_gamertag()
         gamemode = self.player_score.get_gamemode()
         player_score = Player(gamertag, gamemode)
         self.gamertag_button_action(player_score)

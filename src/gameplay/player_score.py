@@ -1,6 +1,6 @@
 class Player:
     def __init__(self, gamertag, gamemode):
-        self.gamertag = str(gamertag)
+        self.gamertag = gamertag
         self.points = 0
         self.correct_answers = 0
         self.health = 3

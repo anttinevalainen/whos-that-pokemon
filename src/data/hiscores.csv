@@ -1,10 +1,10 @@
 gamertag,points,correct_answers,gens
-<bound method Player.get_gamertag of <gameplay.player_score.Player object at 0x0000025E97DC94C0>>,1200,4,6
 III,900,3,6
-III,900,3,6
-III,900,3,6
-III,900,3,6
-III,900,3,6
-AAA,1600,8,4
-OLO,3900,13,6
-OOO,6300,21,6
+NAN,0,0,6
+NAN,0,0,6
+NAN,0,0,6
+NAN,0,0,6
+NAN,0,0,6
+NAN,0,0,6
+NAN,0,0,6
+NAN,0,0,6
