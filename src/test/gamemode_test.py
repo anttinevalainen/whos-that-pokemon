@@ -38,40 +38,42 @@ class TestGamemode(unittest.TestCase):
         self.assertEqual(len(gm_dataframe), gm_number_of_pokemon)
 
     def test_generations_string_returns_right_numbers(self):
-        generation_choice = []
-        generation_choice.append(1)
-        while len(generation_choice) < 6:
-            random_number = rd.randint(0, 1)
-            generation_choice.append(random_number)
-        rd.shuffle(generation_choice)
-        new_gamemode = Gamemode(generation_choice, False)
+        i = 0
+        while i <= 6:
+            generation_choice = []
+            while len(generation_choice) < 6:
+                random_number = rd.randint(0, 1)
+                generation_choice.append(random_number)
+            generation_choice.insert(i, 1)
+            new_gamemode = Gamemode(generation_choice, False)
 
-        gen_string = new_gamemode.get_generations_string()
+            gen_string = new_gamemode.get_generations_string()
 
-        gen_number = 0
-        gen_list = []
-        value = ''
-
-        for position, item in enumerate(generation_choice):
-            if item == 1:
-                gen_number += 1
-                gen_list.append(str(position+1))
-
-        if gen_number == 6:
-            value = '1-6'
-        else:
+            gen_number = 0
+            gen_list = []
             value = ''
 
-            for position, item in enumerate(gen_list):
-                if len(gen_list) < 2:
-                    value += item
-                elif position < len(gen_list)-2:
-                    value += item + ', '
-                elif position == len(gen_list)-2:
-                    value += item + ' & '
-                else:
-                    value += item
-        self.assertEqual(gen_string, value)
+            for position, item in enumerate(generation_choice):
+                if item == 1:
+                    gen_number += 1
+                    gen_list.append(str(position+1))
+
+            if gen_number == 6:
+                value = '1-6'
+            else:
+                value = ''
+
+                for position, item in enumerate(gen_list):
+                    if len(gen_list) < 2:
+                        value += item
+                    elif position < len(gen_list)-2:
+                        value += item + ', '
+                    elif position == len(gen_list)-2:
+                        value += item + ' & '
+                    else:
+                        value += item
+            i +=1
+            self.assertEqual(gen_string, value)
 
     def test_number_of_gens_matches_with_gamemode(self):
         generation_choice = []
