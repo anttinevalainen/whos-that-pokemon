@@ -28,11 +28,25 @@ def get_pokemon_full_name(filename):
         filenumber = int(filename_s[0])-1
 
         if len(filename_s) > 1:
-            second_part = filename_s[1]
-            first_part = pokedex_df.at[filenumber, 'pokemon']
+            base_name = pokedex_df.at[filenumber, 'pokemon'].capitalize()
+            if filename_s[1] == 'mega':
+                pokemon_full_name = (filename_s[1].capitalize() +
+                                    ' ' +
+                                    base_name)
+                if len(filename_s) > 2:
+                    second_part = filename_s[2]
+                    pokemon_full_name = (pokemon_full_name +
+                                        ' (' +
+                                        second_part +
+                                        ')')
+            else:
+                second_part = filename_s[1]
+                first_part = pokedex_df.at[filenumber, 'pokemon']
 
-            pokemon_full_name = first_part + ' (' + second_part + ')'
-
+                pokemon_full_name = (first_part +
+                                    ' (' +
+                                    second_part +
+                                    ')')
         else:
             pokemon_full_name = pokedex_df.at[filenumber, 'pokemon']
 
@@ -63,16 +77,22 @@ def check_answer(pokemon_full_name, answer):
     the pokemon_full_name and user input as string values'''
 
     correct = False
+
     correct_answer = ''
     user_answer = ''
+
     pokemon_full_name = pokemon_full_name.lower()
+    name_split = pokemon_full_name.split(' ')
+
     answer = answer.lower()
 
-    if (pokemon_full_name == 'mr. mime' or
+    if name_split[0] == 'mega':
+        pokemon_name = name_split[0] + ' ' + name_split[1]
+    elif (pokemon_full_name == 'mr. mime' or
         pokemon_full_name == 'mime jr.'):
         pokemon_name = pokemon_full_name
     else:
-        pokemon_name = pokemon_full_name.split(' ')[0]
+        pokemon_name = name_split[0]
 
     for character in pokemon_name:
         if character.isalnum():

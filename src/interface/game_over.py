@@ -67,6 +67,9 @@ class GameOverPage:
                 width = 90,
                 height = 60
             )
+        self.root.bind(
+                    "<Return>",
+                    lambda x: self.try_again_pressed())
 
         if self.gamemode.get_revision():
             self.game_over_label['text'] = ("GAME OVER!\n" +
@@ -86,6 +89,9 @@ class GameOverPage:
                 width = 100,
                 height = 60
             )
+            self.root.bind(
+                    "<Return>",
+                    lambda x: self.send_hiscore_pressed())
         else:
             self.game_over_label['text'] = ('GAME OVER!\n' +
                                             'Not enough points for hiscores!\n' +
@@ -108,6 +114,9 @@ class GameOverPage:
             width = 100,
             height = 60
         )
+        self.root.bind(
+                    "<Return>",
+                    lambda x: self.index_button_action())
 
     def close_frame(self):
         self.frame.destroy()

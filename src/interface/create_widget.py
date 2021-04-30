@@ -56,7 +56,7 @@ def create_answer_canvas(frame, text, background):
         frame,
         bd = 0,
         highlightthickness = 0,
-        relief = 'ridge'
+        relief = 'ridge',
     )
     text_canvas.place(
         x = 20,

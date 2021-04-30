@@ -259,6 +259,8 @@ class GamertagPage:
             height = 25
         )
 
+        self.root.bind("<Return>", lambda x: self.send_gamertag())
+
     def send_gamertag(self):
         revision = False
         gamertag = str(self.gamertag_entry.get().upper())
@@ -308,6 +310,9 @@ class GamertagPage:
                 width = 155,
                 height = 100
                 )
+                self.root.bind(
+                    "<Return>", 
+                    lambda x: self.gamertag_button_action(player_score))
         else:
             self.gamertag_input_label['text'] = 'Your gamertag must consist\nof three letters (A-Ö)'
             self.gamertag_input_label['font'] = ('Helvetica', 10)

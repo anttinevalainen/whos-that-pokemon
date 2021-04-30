@@ -50,6 +50,7 @@ class PlayPage:
             width = 200,
             height = 30
         )
+
         self.send_answer_button = tk.Button(
             self.root,
             text = '!',
@@ -64,8 +65,6 @@ class PlayPage:
             width = 45,
             height = 45
         )
-
-
 
         if self.gamemode.get_revision():
             if (self.pokemon_full_name == 'mr. mime' or
@@ -86,23 +85,27 @@ class PlayPage:
                 height=20
             )
 
-    def send_answer(self):
+        self.root.bind("<Return>", lambda x: self.send_answer())
+        self.answer.focus_set()
+
+    def send_answer(self, event=None):
 
         self.background = tk.PhotoImage(file = 'src/data/png/text_background.png')
 
         if dh.check_answer(self.pokemon_full_name, self.answer.get()):
             self.player_score.correct_answer()
-            self.text = "CORRECT! \n It's " + self.pokemon_full_name.upper() + '!'
+            self.text = "Correct! It's\n" + self.pokemon_full_name.upper() + '!'
             cw.create_answer_canvas(self.root, self.text, self.background)
         else:
             self.player_score.incorrect_answer()
-            self.text = "WRONG! \n It's " + self.pokemon_full_name.upper() + '!'
+            self.text = "Wrong! It's\n" + self.pokemon_full_name.upper() + '!'
             cw.create_answer_canvas(self.root, self.text, self.background)
         cw.create_pokemon_label(self.root, self.pokemon_photoimage)
 
         self.send_answer_button['text'] = 'Next!'
         self.send_answer_button['font'] = ('Helvetica', 10)
         self.send_answer_button['command'] = self.next_button_pressed
+        self.root.bind("<Return>", lambda x: self.next_button_pressed())
 
     def next_button_pressed(self):
         if self.player_score.get_health() < 1:

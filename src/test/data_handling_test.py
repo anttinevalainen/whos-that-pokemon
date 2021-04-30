@@ -41,8 +41,18 @@ class TestDataHandling(unittest.TestCase):
 
     def test_get_name_returns_two_part_name(self):
         megaevol_fp = '3-mega.png'
-        correct_full_name = 'venusaur (mega)'
+        correct_full_name = 'mega venusaur'
         full_name = dh.get_pokemon_full_name(megaevol_fp).lower()
+        self.assertEqual(correct_full_name, full_name)
+
+        megaevol_fp = '3-mega.png'
+        correct_full_name = 'mega venusaur'
+        full_name = dh.get_pokemon_full_name(megaevol_fp).lower()
+        self.assertEqual(correct_full_name, full_name)
+
+        special_fp = '720-unbound.png'
+        correct_full_name = 'hoopa (unbound)'
+        full_name = dh.get_pokemon_full_name(special_fp).lower()
         self.assertEqual(correct_full_name, full_name)
 
     def test_data_handling_gives_data_of_single_pokemon(self):
