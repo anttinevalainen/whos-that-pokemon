@@ -20,7 +20,7 @@ Sovellus on luotu ja testattu Pythonin versiolla 3.9.2.
 
 ## Releaset
 
-- *[Release 1](https://github.com/anttinevalainen/ot-harjoitustyo/releases/tag/viikko5)*
+- *[Release 1](https://github.com/anttinevalainen/ot-harjoitustyo/releases/tag/Viikko5)*
 
 ## Asennus
 
