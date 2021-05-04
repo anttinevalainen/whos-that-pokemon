@@ -30,7 +30,7 @@ Pelin voi aloittaa klikkaamalla Play-painiketta
 Etusivulta play-painikkeella siirrytään peliprofiilien luomiseen.
 
 Käyttäjä ilmoittaa kolmikirjaimisen pelaajanimensä ja valitsee ne generaatiot, joilla haluaa sovellusta käyttää.\
-Alla olevassa esimerkissä pelaajanimeksi tulee 'AAA' ja pelataan generaatioilla 1,2,3,4 ja 6
+Alla olevassa esimerkissä pelaajanimeksi tulee 'AAA' ja pelataan generaatioilla 1, 2, 3, 5 ja 6
 
 <img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/gametag.PNG width="320" height="240">
 
