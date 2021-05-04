@@ -9,7 +9,7 @@ from gameplay.gamemode import Gamemode
 
 class TestHiscoreSave(unittest.TestCase):
     def setUp(self):
-        self.table_filepath = 'src/data/hiscores.csv'
+        self.table_filepath = 'src/services/hiscores.csv'
         print('Hiscore save test initiation')
 
     def test_initialization_creates_hiscore_table_if_doesnt_exist(self):

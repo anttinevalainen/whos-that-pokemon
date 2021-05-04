@@ -49,4 +49,4 @@ def add_hiscore(player_score):
             hiscore_df.at[i, 'gens'] = number_of_gens
             break
 
-    hiscore_df.to_csv('src/data/hiscores.csv', index = False)
+    hiscore_df.to_csv('src/services/hiscores.csv', index = False)

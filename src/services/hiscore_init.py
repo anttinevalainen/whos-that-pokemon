@@ -13,7 +13,7 @@ def initialize_hiscore_dataframe():
 
     try:
 
-        hiscore_df = pd.read_csv('src/data/hiscores.csv', sep=',')
+        hiscore_df = pd.read_csv('src/services/hiscores.csv', sep=',')
 
     except FileNotFoundError:
 
@@ -22,9 +22,9 @@ def initialize_hiscore_dataframe():
                 'correct_answers':[0, 0, 0, 0, 0, 0, 0, 0, 0],
                 'gens':[6,6,6,6,6,6,6,6,6]}
         hiscore_df = pd.DataFrame(data)
-        hiscore_df.to_csv(r'src/data/hiscores.csv', index = False)
+        hiscore_df.to_csv(r'src/services/hiscores.csv', index = False)
 
-    hiscore_df = pd.read_csv('src/data/hiscores.csv', sep=',')
+    hiscore_df = pd.read_csv('src/services/hiscores.csv', sep=',')
 
     if (len(hiscore_df) != 9) or (len(hiscore_df.columns) != 4):
 
@@ -33,6 +33,6 @@ def initialize_hiscore_dataframe():
                 'correct_answers':[0, 0, 0, 0, 0, 0, 0, 0, 0],
                 'gens':[6,6,6,6,6,6,6,6,6]}
         hiscore_df = pd.DataFrame(data)
-        hiscore_df.to_csv(r'src/data/hiscores.csv', index = False)
+        hiscore_df.to_csv(r'src/services/hiscores.csv', index = False)
 
     return hiscore_df
