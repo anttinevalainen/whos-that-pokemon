@@ -15,7 +15,6 @@ def get_random_filename(gamemode):
     directory_df = gamemode.get_directory_dataframe()
     random_integer = random.randint(0,len(directory_df)-1)
     filename = directory_df.at[random_integer, 'file']
-
     return filename
 
 def get_silhouette(filename):
