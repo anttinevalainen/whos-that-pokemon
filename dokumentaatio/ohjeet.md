@@ -75,12 +75,12 @@ Käyttäjän syöttämä vastaus tai sen vertaaminen pokemonin nimeen ei ole cas
 | Mime Jr.          | Mime.jr.           | Correct! It's MIME JR.!           |
 
 Joillakin pokemoneilla on evoluutiohaaran sisäisiä erikoismuotoja, jotka ilmoitetaan sovelluksessa Pokemonin nimen perässä sulkeissa. Näitä osioita ei tarvitse osata pelatessa ja esimerkiksi 'Aegislash (Sword)' arvatessa sovellus ilmoittaa väärästä vastauksesta.\
-\
+
 Joillakin pokemoneilla on oma megaevoluutio, joka täytyy ottaa huomioon sovellusta käytettäessä. Esimerkiksi pelkästään 'Blastoise' merkitään vääräksi vastaukseksi, jos
 kyseessä on mega blastoise.
-\
+
 Esimerkiksi Mewtwolla ja Charizardilla on kahdenlaiset megaevoluutiot (X ja Y). Näissä tapauksissa sovelluksessa pätee molemmat yllänäkyvät huomiot, eli oikea vastaus on Mega Mewtwo tai Mega Charizard.
-\
+
 Mikäli arvailu vaikuttaa monimutkaiselta, suosittelen pelaamaan kierroksen tai pari revision modea käyttäen!
 
 ## Game Over
