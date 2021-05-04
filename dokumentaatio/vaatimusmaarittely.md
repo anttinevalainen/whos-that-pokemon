@@ -12,7 +12,7 @@ Sovelluksella on alustavasti vain yhdenlaisia käyttäjiä. Myös adminkäyttäj
 ### Käyttöliittymäluonnos
 Sovelluksen tarkempi käyttöliittymäluonnos on vielä tekeillä, mutta alla ns. concept art -luonnos sovelluksen päävaiheen ulkoasusta
 
-<img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/concept.jpeg width="200" height="300">
+<img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/concept.jpeg width="200" height="300">
 
 
 ### Perusversion tarjoama toiminnallisuus
