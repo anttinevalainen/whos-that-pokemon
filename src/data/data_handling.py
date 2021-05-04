@@ -3,7 +3,15 @@ import pandas as pd
 from PIL import Image, ImageTk
 
 def get_random_filename(gamemode):
-    '''Returns the png-filename of a random pokemon'''
+    '''Returns a png-filename by random from data/png folder
+
+        Args:
+            gamemode: gamemode object, with which the player is using the app
+
+        Returns:
+            png-filename as string
+        '''
+
     directory_df = gamemode.get_directory_dataframe()
     random_integer = random.randint(0,len(directory_df)-1)
     filename = directory_df.at[random_integer, 'file']
@@ -11,15 +19,33 @@ def get_random_filename(gamemode):
     return filename
 
 def get_silhouette(filename):
-    '''Returns the silhouette image file of a given pokemon image file'''
+    '''Returns a silhouette version of a given png file
+
+        Args:
+            filename: name of a png-file from data/png folder
+
+        Returns:
+            png-filename as string
+        '''
+
     silhouette_filepath = 'src/data/png/black_' + filename
     return silhouette_filepath
 
 def get_pokemon_full_name(filename):
-    '''Returns the name and the type of possible secondary form (string)\
-        Requires the filename of said pokemon (string)'''
+    '''Returns the name and the type of possible secondary
+    form of pokemon with given filename
+
+        Args:
+            filename: name of a png-file from data/png folder
+
+        Returns:
+            full name of a pokemon in the following form:
+            (mega) + name + (possible special form)
+        '''
+
     pokedex_df = pd.read_csv('src/data/pokedex_list.csv', sep = ',')
     filename = filename[:-4]
+    secondary_name = ''
     if filename == '474':
         filenumber = int(filename)-1
         pokemon_full_name = pokedex_df.at[filenumber, 'pokemon']
@@ -29,52 +55,57 @@ def get_pokemon_full_name(filename):
 
         if len(filename_s) > 1:
             base_name = pokedex_df.at[filenumber, 'pokemon'].capitalize()
-            if filename_s[1] == 'mega':
-                pokemon_full_name = (filename_s[1].capitalize() +
-                                    ' ' +
-                                    base_name)
-                if len(filename_s) > 2:
-                    second_part = filename_s[2]
-                    pokemon_full_name = (pokemon_full_name +
-                                        ' (' +
-                                        second_part +
-                                        ')')
-            else:
-                second_part = filename_s[1]
-                first_part = pokedex_df.at[filenumber, 'pokemon']
+            if 'mega' in filename_s[1]:
+                base_name = 'Mega ' + base_name
+            secondary_name = filename_s[1].replace('mega', '')
+            secondary_name = secondary_name.replace('_', ' ')
+            secondary_name = secondary_name.strip()
 
-                pokemon_full_name = (first_part +
-                                    ' (' +
-                                    second_part +
-                                    ')')
+            if secondary_name != '':
+                pokemon_full_name = base_name + ' (' + secondary_name + ')'
+            else:
+                pokemon_full_name = base_name
         else:
-            pokemon_full_name = pokedex_df.at[filenumber, 'pokemon']
+            pokemon_full_name = pokedex_df.at[filenumber, 'pokemon'].capitalize()
 
     return pokemon_full_name
 
-def get_silhouette_photoimage(silhouette_filename):
-    '''returns a ready made photoimage of the silhouette merged with \
-        the background. Takes the filename of the silhouette in \
-        src/data/png folder'''
-    silhouette_image = Image.open(silhouette_filename).convert('RGBA')
-    image_background = Image.open('src/data/png/image_background.png').convert('RGBA')
-    image_background.paste(silhouette_image, (0, 0), silhouette_image)
-    silhouette_photoimage = ImageTk.PhotoImage(image_background)
-    return silhouette_photoimage
-
 def get_pokemon_photoimage(filename):
-    '''returns a ready made photoimage of the pokemon
-    merged with the background. requires the filename of
-    the pokemon in src/data/png folder'''
-    pokemon_image = Image.open('src/data/png/' + filename).convert('RGBA')
+    '''returns a ready made photoimage of the pokemon picture merged with
+        the background of the app. Can be used with either silhouette or
+        pokemon image filepaths
+
+        Args:
+            filename: name of a png-file of the pokemon or its silhouette
+            from data/png folder
+
+        Returns:
+            photoimage object of the image merged with same size piece of app
+            background
+        '''
+
+    if 'black_' in filename:
+        img = Image.open(filename).convert('RGBA')
+    else:
+        img = Image.open('src/data/png/' + filename).convert('RGBA')
+
     image_background = Image.open('src/data/png/image_background.png').convert('RGBA')
-    image_background.paste(pokemon_image, (0, 0), pokemon_image)
+    image_background.paste(img, (0, 0), img)
     pokemon_photoimage = ImageTk.PhotoImage(image_background)
     return pokemon_photoimage
 
 def check_answer(pokemon_full_name, answer):
-    '''returns a a boolean value of answer correctness. requires
-    the pokemon_full_name and user input as string values'''
+    '''Returns a a boolean value of answer correctness.
+
+        Args:
+            pokemon_full_name: String value of Pokamon name,
+            can be used with special forms and mega/gigantamax evolutions!
+            answer: User input from play page
+
+        Returns:
+            True: If answer matches with pokemon name
+            False: If answer does not match with pokemon name
+    '''
 
     correct = False
 
@@ -108,8 +139,17 @@ def check_answer(pokemon_full_name, answer):
     return correct
 
 def get_health_photoimage(player_score):
-    '''returns a ready made photoimage of player's health merged with
-    the background. Requires the current player_score as a variable'''
+    '''returns a photoimage of player's health merged with
+    the background.
+
+        Args:
+            Player_score: The current Player object
+
+        Returns:
+            Photoimage object of user's health as three heart
+            symbols merged with a piece of app background
+    '''
+
 
     heart_fp = 'src/data/png/heart.png'
     noheart_fp = 'src/data/png/noheart.png'
@@ -140,13 +180,23 @@ def get_health_photoimage(player_score):
     return health_photoimage
 
 def get_pokemon_data(gamemode):
-    '''Returns Pokémon name(string), Pokémon full name (string),
-    silhouette image w/ background (photoimage) and Pokémon image
-    w/ background (photoimage)'''
+    '''returns multiple pieces of information of a single
+    random pokemon in one calling
+
+        Args:
+            gamemode: The current Gamemode object, which defines how many
+            generations the user is playing with
+
+        Returns:
+            pokemon_full_name: full name of a single random pokemon
+            silhouette_photoimage: silhouette photoimage of said pokemon
+            pokemon_photoimage: photoimage of said pokemon
+    '''
+
     random_filename = get_random_filename(gamemode)
     silhouette_filename = get_silhouette(random_filename)
     pokemon_full_name = get_pokemon_full_name(random_filename)
-    silhouette_photoimage = get_silhouette_photoimage(silhouette_filename)
+    silhouette_photoimage = get_pokemon_photoimage(silhouette_filename)
     pokemon_photoimage = get_pokemon_photoimage(random_filename)
 
     return pokemon_full_name, silhouette_photoimage, pokemon_photoimage

@@ -2,7 +2,8 @@ import unittest
 import os
 import random as rd
 import pandas as pd
-import gameplay.hiscore_save as hs
+import services.hiscore_save as hs
+import services.hiscore_init as hi
 from gameplay.player_score import Player
 from gameplay.gamemode import Gamemode
 
@@ -16,7 +17,7 @@ class TestHiscoreSave(unittest.TestCase):
             table_copy = pd.read_csv(self.table_filepath, sep=',')
             os.remove(self.table_filepath)
 
-        hs.initialize_hiscore_dataframe()
+        hi.initialize_hiscore_dataframe()
         hiscore_df = pd.read_csv(self.table_filepath, sep=',')
         row_gamertag = hiscore_df.at[3, 'gamertag']
         row_points = hiscore_df.at[3, 'points']
@@ -46,7 +47,7 @@ class TestHiscoreSave(unittest.TestCase):
         hiscore_df = pd.DataFrame(data)
         hiscore_df.to_csv(self.table_filepath, index = False)
 
-        hs.initialize_hiscore_dataframe()
+        hi.initialize_hiscore_dataframe()
         row_gamertag = hiscore_df.at[3, 'gamertag']
         row_points = hiscore_df.at[3, 'points']
         row_answers = hiscore_df.at[3, 'correct_answers']
@@ -82,7 +83,7 @@ class TestHiscoreSave(unittest.TestCase):
         self.assertEqual(len(hiscore_df), 10)
         self.assertEqual(len(hiscore_df.columns), 5)
 
-        hs.initialize_hiscore_dataframe()
+        hi.initialize_hiscore_dataframe()
         hiscore_df = pd.read_csv(self.table_filepath, sep=',')
 
         self.assertEqual(len(hiscore_df), 9)

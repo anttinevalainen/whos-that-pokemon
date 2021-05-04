@@ -1,7 +1,7 @@
 import tkinter as tk
 from gameplay.player_score import Player
 import interface.create_widget as cw
-import gameplay.hiscore_save as hs
+import services.hiscore_save as hs
 import data.data_handling as dh
 
 class GameOverPage:
@@ -14,7 +14,14 @@ class GameOverPage:
         self.initialize()
 
     def initialize(self):
-        '''Initializes the graphic interface for the game over page'''
+        '''Initializes the graphic interface for the game over page
+
+        Args:
+            Self
+
+        Returns:
+            None'''
+
         self.frame = tk.Frame(master = self.root)
         cw.create_background_label(self.root)
 

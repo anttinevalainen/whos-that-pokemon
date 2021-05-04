@@ -14,7 +14,7 @@ class HiscorePage:
         self.frame = tk.Frame(master = self.root)
         cw.create_background_label(self.root)
 
-        cw.create_hiscore_table(self.root)
+        cw.create_hiscore_table(self.root, 'points')
 
         index_button = tk.Button(
             self.root,
@@ -29,7 +29,7 @@ class HiscorePage:
 
         self.root.bind(
                     "<Return>",
-                    lambda x: self.index_button_action())
+                    lambda: self.index_button_action())
 
     def close_frame(self):
         self.frame.destroy()

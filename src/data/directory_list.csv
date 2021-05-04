@@ -6,8 +6,8 @@ pdno,file,pokemon
 4,4.png,Charmander
 5,5.png,Charmeleon
 6,6.png,Charizard
-6,6-mega-x.png,Charizard
-6,6-mega-y.png,Charizard
+6,6-mega_x.png,Charizard
+6,6-mega_y.png,Charizard
 7,7.png,Squirtle
 8,8.png,Wartortle
 9,9.png,Blastoise
@@ -33,8 +33,8 @@ pdno,file,pokemon
 25,25-belle.png,Pikachu
 25,25-libre.png,Pikachu
 25,25-phd.png,Pikachu
-25,25-pop-star.png,Pikachu
-25,25-rock-star.png,Pikachu
+25,25-pop_star.png,Pikachu
+25,25-rock_star.png,Pikachu
 26,26.png,Raichu
 27,27.png,Sandshrew
 28,28.png,Sandslash
@@ -167,8 +167,8 @@ pdno,file,pokemon
 148,148.png,Dragonair
 149,149.png,Dragonite
 150,150.png,Mewtwo
-150,150-mega-x.png,Mewtwo
-150,150-mega-y.png,Mewtwo
+150,150-mega_x.png,Mewtwo
+150,150-mega_y.png,Mewtwo
 151,151.png,Mew
 152,152.png,Chikorita
 153,153.png,Bayleef
@@ -626,7 +626,7 @@ pdno,file,pokemon
 552,552.png,Krokorok
 553,553.png,Krookodile
 554,554.png,Darumaka
-555,555-standard.png,Darmanitan
+555,555.png,Darmanitan
 556,556.png,Maractus
 557,557.png,Dwebble
 558,558.png,Crustle
@@ -720,13 +720,13 @@ pdno,file,pokemon
 638,638.png,Cobalion
 639,639.png,Terrakion
 640,640.png,Virizion
-641,641.png,Tornadus
+641,641-incarnate.png,Tornadus
 641,641-therian.png,Tornadus
-642,642.png,Thundurus
+642,642-incarnate.png,Thundurus
 642,642-therian.png,Thundurus
 643,643.png,Reshiram
 644,644.png,Zekrom
-645,645.png,Landorus
+645,645-incarnate.png,Landorus
 645,645-therian.png,Landorus
 646,646.png,Kyurem
 646,646-black.png,Kyurem
@@ -774,7 +774,7 @@ pdno,file,pokemon
 679,679.png,Honedge
 680,680.png,Doublade
 681,681-blade.png,Aegislash
-681,681.png,Aegislash
+681,681-shield.png,Aegislash
 682,682.png,Spritzee
 683,683.png,Aromatisse
 684,684.png,Swirlix

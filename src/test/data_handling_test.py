@@ -35,9 +35,11 @@ class TestDataHandling(unittest.TestCase):
         number = number_s[0]
         pokemon_by_number = pokedex_df.at[int(number)-1, 'pokemon'].lower()
 
-        name = dh.get_pokemon_full_name(filename).split(' ')[0].lower()
+        name = dh.get_pokemon_full_name(filename).lower()
+        print(pokemon_by_number)
+        print(name)
 
-        self.assertTrue(pokemon_by_number == name)
+        self.assertTrue(pokemon_by_number in name)
 
     def test_get_name_returns_multipart_name(self):
         megaevol_fp = '3-mega.png'
@@ -45,7 +47,7 @@ class TestDataHandling(unittest.TestCase):
         full_name = dh.get_pokemon_full_name(megaevol_fp).lower()
         self.assertEqual(correct_full_name, full_name)
 
-        megaevol_fp = '150-mega-y.png'
+        megaevol_fp = '150-mega_y.png'
         correct_full_name = 'mega mewtwo (y)'
         full_name = dh.get_pokemon_full_name(megaevol_fp).lower()
         self.assertEqual(correct_full_name, full_name)
@@ -79,19 +81,17 @@ class TestDataHandling(unittest.TestCase):
                 )
 
     def test_check_answer_correct_answer(self):
-        generation_choice = [1,1,1,1,1,0]
-        new_gamemode = Gamemode(generation_choice, False)
-        random_pokemon_fp = dh.get_random_filename(new_gamemode)
-        pokemon_full_name = dh.get_pokemon_full_name(random_pokemon_fp)
-        pokemon_name = pokemon_full_name.split(' ')[0].lower()
-        self.assertTrue(dh.check_answer(pokemon_full_name, pokemon_name))
+        normal_fp = '152.png'
+        correct_name = dh.get_pokemon_full_name(normal_fp).lower()
+        normal_true = 'chikorita'
+        self.assertTrue(dh.check_answer(correct_name, normal_true))
 
         megaevol_fp = '3-mega.png'
         megaevol_name = dh.get_pokemon_full_name(megaevol_fp).lower()
         megaevol_true = 'mega venusaur'
         self.assertTrue(dh.check_answer(megaevol_name, megaevol_true))
 
-        megaevol_fp = '150-mega-y.png'
+        megaevol_fp = '150-mega_y.png'
         megaevol_name = dh.get_pokemon_full_name(megaevol_fp).lower()
         megaevol_true = 'mega mewtwo'
         self.assertTrue(dh.check_answer(megaevol_name, megaevol_true))
@@ -113,7 +113,7 @@ class TestDataHandling(unittest.TestCase):
         megaevol_wrong = 'venusaur'
         self.assertFalse(dh.check_answer(megaevol_name, megaevol_wrong))
 
-        megaevol_fp = '150-mega-y.png'
+        megaevol_fp = '150-mega_y.png'
         megaevol_name = dh.get_pokemon_full_name(megaevol_fp).lower()
         megaevol_wrong = 'mega mewtwo from pokemon y game'
         self.assertFalse(dh.check_answer(megaevol_name, megaevol_wrong))
@@ -150,7 +150,7 @@ class TestDataHandling(unittest.TestCase):
         pokemon_type = type(pokemon_pi)
 
         silhouette_fp = dh.get_silhouette(pokemon_fp)
-        silhouette_pi = dh.get_silhouette_photoimage(silhouette_fp)
+        silhouette_pi = dh.get_pokemon_photoimage(silhouette_fp)
         silhouette_type = type(silhouette_pi)
 
         self.assertTrue(three_heart_type ==
