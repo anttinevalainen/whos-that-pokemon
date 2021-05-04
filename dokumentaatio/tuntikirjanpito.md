@@ -24,4 +24,9 @@
 | 24.4.| 2    | Koodin siivoaminen ja testien fiksailu sen jäljiltä            |
 | 27.4.| 4    | Sovelluksen toiminnallisuuden kasvattaminen ja testien luonti  |
 | 27.4.| 2    | Sekvenssidiagrammin ja Release 1 valmistelu                    |
-|YHT   | 71   |                                                                       |
+| 28.4.| 4    | Sovelluslogiikan korjailu ja parantelu                         |
+| 30.4.| 4    | Gen 7-8, regional formien ja gmaxien valmisteleminen           |
+| 5.4. | 2    | Diagrammien laatiminen                                         |
+| 7.4. | 3    | Saadun koodikatselmoinnin huomioiden korjailu                  |
+| 8.4. | 2    | Arkkitehtuurin ja käyttöohjeiden päivitys                      |
+|YHT   | 87   |                                                                |
