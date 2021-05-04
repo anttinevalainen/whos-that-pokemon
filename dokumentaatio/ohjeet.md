@@ -1,6 +1,6 @@
 # Käyttöohje
 
-(Sovelluksen viimeisin [release](https://github.com/ohjelmistotekniikka-hy/python-todo-app/releases) löytyy [täältä](https://github.com/anttinevalainen/ot-harjoitustyo/releases). Lataa release klikkaamalla kohtaa _Source code_.
+(Sovelluksen viimeisin [release](https://github.com/ohjelmistotekniikka-hy/python-todo-app/releases) löytyy [täältä](https://github.com/anttinevalainen/ot-harjoitustyo/releases). Lataa release klikkaamalla kohtaa _Source code_.)
 
 
 ## Ohjelman käynnistäminen
