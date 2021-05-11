@@ -13,7 +13,7 @@ def initialize_hiscore_dataframe():
 
     try:
 
-        hiscore_df = pd.read_csv('src/services/hiscores.csv', sep=',')
+        hiscore_df = pd.read_csv('src/data/hiscores.csv', sep=',')
 
     except FileNotFoundError:
 
@@ -22,9 +22,9 @@ def initialize_hiscore_dataframe():
                 'correct':[0, 0, 0, 0, 0, 0, 0, 0, 0],
                 'gens':[12,12,12,12,12,12,12,12,12]}
         hiscore_df = pd.DataFrame(data)
-        hiscore_df.to_csv(r'src/services/hiscores.csv', index = False)
+        hiscore_df.to_csv(r'src/data/hiscores.csv', index = False)
 
-    hiscore_df = pd.read_csv('src/services/hiscores.csv', sep=',')
+    hiscore_df = pd.read_csv('src/data/hiscores.csv', sep=',')
 
     if (len(hiscore_df) != 9) or (len(hiscore_df.columns) != 4):
 
@@ -33,7 +33,7 @@ def initialize_hiscore_dataframe():
                 'correct':[0, 0, 0, 0, 0, 0, 0, 0, 0],
                 'gens':[12,12,12,12,12,12,12,12,12]}
         hiscore_df = pd.DataFrame(data)
-        hiscore_df.to_csv(r'src/services/hiscores.csv', index = False)
+        hiscore_df.to_csv(r'src/data/hiscores.csv', index = False)
 
     return hiscore_df
 
@@ -86,4 +86,4 @@ def add_hiscore(player):
             hiscore_df.at[i, 'gens'] = number_of_gens
             break
 
-    hiscore_df.to_csv('src/services/hiscores.csv', index = False)
+    hiscore_df.to_csv('src/data/hiscores.csv', index = False)
