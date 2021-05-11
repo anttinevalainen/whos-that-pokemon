@@ -1,29 +1,66 @@
 import tkinter as tk
-import data.data_handling as dh
+import services.player_service as ps
+import services.pokemon_service as pks
 import interface.create_widget as cw
 
 class PlayPage:
+    '''A class for the gameplay page of the graphic interface
 
-    def __init__(self, root, player_score, index_button_action, game_over_button_action):
+    Attributes:
+        root: The main root of the game
+        player: The current player object
+        index_button_action: Action to return to index page
+        game_over_action: Action to move to the game over -page
+    '''
+
+    def __init__(self, root, player, index_button_action, game_over_action):
+        '''Class constructor for the gameplay page
+
+            Args:
+                self
+                root: The main window for the whole interface
+                player: current player profile
+                index_button_action: Action for the button used to return to
+                    the index page
+                game_over_action: Action to switch the page to game over and
+                    end the game
+        '''
+
         self.root = root
-        self.player_score = player_score
-        self.gamemode = self.player_score.get_gamemode()
+        self.player = player
+        self.gamemode = self.player.get_gamemode()
         self.index_button_action = index_button_action
-        self.game_over_button_action = game_over_button_action
+        self.game_over_action = game_over_action
         self.initialize()
 
     def initialize(self):
-        '''Initializes the graphic interface for the play page'''
-        self.frame = tk.Frame(self.root)
+        '''Initializes the graphic interface for the hiscore page
 
+        Args:
+            Self
+
+        Returns:
+            None'''
+
+        self.frame = tk.Frame(self.root)
         cw.create_background_label(self.root)
-        (self.pokemon_full_name, self.silhouette_photoimage,
-        self.pokemon_photoimage) = dh.get_pokemon_data(self.player_score.get_gamemode())
-        self.health_photoimage = dh.get_health_photoimage(self.player_score)
+
+        self.pokedex = self.player.get_pokedex()
+        self.pokemon = self.pokedex.get_random_pokemon()
+
+        self.pokemon_name = self.pokemon.get_name()
+
+        self.s_filename = self.pokemon.get_silhouette_fp()
+        self.p_filename = self.pokemon.get_picture_fp()
+
+        self.s_photoimage = pks.get_pokemon_photoimage(self.s_filename)
+        self.p_photoimage = pks.get_pokemon_photoimage(self.p_filename)
+
+        self.health_photoimage = ps.get_health_photoimage(self.player)
 
         cw.create_health_label(self.root, self.health_photoimage)
-        cw.create_progress_label(self.root, self.player_score)
-        cw.create_pokemon_label(self.root, self.silhouette_photoimage)
+        cw.create_progress_label(self.root, self.player)
+        cw.create_pokemon_label(self.root, self.s_photoimage)
 
         tk.Button(
             self.root,
@@ -50,6 +87,7 @@ class PlayPage:
             width = 200,
             height = 30
         )
+        #self.answer.insert(index = 0, string = self.pokemon_name)
 
         self.send_answer_button = tk.Button(
             self.root,
@@ -67,14 +105,9 @@ class PlayPage:
         )
 
         if self.gamemode.get_revision():
-            if (self.pokemon_full_name == 'mr. mime' or
-                self.pokemon_full_name == 'mime jr.'):
-                pokemon_name = self.pokemon_full_name
-            else:
-                pokemon_name = self.pokemon_full_name.split(' ')[0]
             tk.Label(
                 self.root,
-                text = "Psst...! It's " + pokemon_name + '!',
+                text = "Psst...! It's " + self.pokemon_name + '!',
                 bg = '#ec3025',
                 fg = '#0f4d88',
                 font = ('Helvetica', 10, 'bold')
@@ -88,19 +121,29 @@ class PlayPage:
         self.root.bind("<Return>", lambda x: self.send_answer())
         self.answer.focus_set()
 
-    def send_answer(self, event=None):
+    def send_answer(self):
+        '''Actions expressed after user has sent their answer with '!'
+        button
+
+        Args:
+            Self
+
+        Returns:
+            None'''
 
         self.background = tk.PhotoImage(file = 'src/data/png/text_background.png')
+        self.correct, self.text = ps.check_answer(self.pokemon, self.answer.get())
 
-        if dh.check_answer(self.pokemon_full_name, self.answer.get()):
-            self.player_score.correct_answer()
-            self.text = "Correct! It's\n" + self.pokemon_full_name.upper() + '!'
-            cw.create_answer_canvas(self.root, self.text, self.background)
+        if self.correct:
+            ps.correct_answer(self.player, self.pokemon)
         else:
-            self.player_score.incorrect_answer()
-            self.text = "Wrong! It's\n" + self.pokemon_full_name.upper() + '!'
-            cw.create_answer_canvas(self.root, self.text, self.background)
-        cw.create_pokemon_label(self.root, self.pokemon_photoimage)
+            ps.incorrect_answer(self.player, self.pokemon)
+
+        cw.create_answer_canvas(self.root, self.text, self.background)
+        cw.create_pokemon_label(self.root, self.p_photoimage)
+
+        self.health_photoimage = ps.get_health_photoimage(self.player)
+        cw.create_health_label(self.root, self.health_photoimage)
 
         self.send_answer_button['text'] = 'Next!'
         self.send_answer_button['font'] = ('Helvetica', 10)
@@ -108,11 +151,28 @@ class PlayPage:
         self.root.bind("<Return>", lambda x: self.next_button_pressed())
 
     def next_button_pressed(self):
-        if self.player_score.get_health() < 1:
-            self.game_over_button_action(self.player_score)
+        '''Actions expressed after user gotten the answer correct or incorrect
+        and pressed the 'Next!'-button
+
+        Args:
+            Self
+
+        Returns:
+            None'''
+
+        if self.player.get_health() < 1 or self.pokedex.is_empty():
+            self.game_over_action(self.player)
         else:
             self.close_frame()
             self.initialize()
 
     def close_frame(self):
+        '''Actions to close the frame of the hiscore page
+
+        Args:
+            Self
+
+        Returns:
+            None'''
+
         self.frame.destroy()

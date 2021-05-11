@@ -1,7 +1,17 @@
 import tkinter as tk
-import services.hiscore_init as hi
+import services.hiscore_service as hs
 
 def create_pokemon_label(frame, photoimage):
+    '''Creates and displays a label with pokemon's/silhouette's image
+    combined with interface background
+
+            Args:
+                frame: The frame image is displayed upon
+                photoimage: A photoimage object of the image created with
+                function in pokemon_service.py
+
+            Returns:
+                None'''
     pokemon_label = tk.Label(
         frame,
         image = photoimage,
@@ -14,30 +24,49 @@ def create_pokemon_label(frame, photoimage):
         y = 104
     )
 
-def create_health_label(frame, health_photoimage):
+def create_health_label(frame, photoimage):
+    '''Creates and displays a label with user's health level expressed
+    with three heart symbols, combined with interface background
 
-    health_label = tk.Label(
+            Args:
+                frame: The frame image is displayed upon
+                photoimage: A photoimage object of the image created with
+                function in player_service.py
+
+            Returns:
+                None'''
+    tk.Label(
         frame,
-        image = health_photoimage,
+        image = photoimage,
         bd = 0,
         highlightthickness = 0,
         relief = 'ridge'
-    )
-    health_label.place(
+    ).place(
         x = 10,
         y = 10
     )
 
-def create_progress_label(frame, player_score):
-    progress_label = tk.Label(
+def create_progress_label(frame, player):
+    '''Creates and displays a label with user's progress. The label
+    tells how many correct answers user has got and their current points
+
+            Args:
+                frame: The frame image is displayed upon
+                player: Current user object
+
+            Returns:
+                None'''
+    points = player.get_points()
+    answers = player.get_correct_answers()
+
+    tk.Label(
             frame,
-            text = 'Points: ' + str(player_score.get_points()) + \
-                '\n' + 'Correct answers: ' + str(player_score.get_correct_answers()),
+            text = 'Points: ' + str(points) + \
+                '\n' + 'Correct answers: ' + str(answers),
             bg = '#ec3025',
             fg = '#0f4d88',
             font = ('Helvetica', 13)
-    )
-    progress_label.place(
+    ).place(
         x = 340,
         y = 20,
         width = 160,
@@ -45,6 +74,13 @@ def create_progress_label(frame, player_score):
     )
 
 def create_background_label(frame):
+    '''Creates and displays the background for the page
+
+            Args:
+                frame: The frame image is displayed upon
+
+            Returns:
+                None'''
     background_image = tk.PhotoImage(file = 'src/data/png/whos_that_pokemon.png')
     background_label = tk.Label(frame,image = background_image)
     background_label.image = background_image
@@ -52,6 +88,17 @@ def create_background_label(frame):
 
 
 def create_answer_canvas(frame, text, background):
+    '''Creates and displays a label with user's health level expressed
+    with three heart symbols, combined with interface background
+
+            Args:
+                frame: The frame image is displayed upon
+                text: The text displayed within the label, created with the
+                check_answer function in player_service.py
+                background: Background photoimage the text is displayed on
+
+            Returns:
+                None'''
     text_canvas = tk.Canvas(
         frame,
         bd = 0,
@@ -73,96 +120,68 @@ def create_answer_canvas(frame, text, background):
         200/2,
         20,
         text = text,
-        font = ('Helvetica', 13, 'bold'),
+        font = ('Helvetica', 10, 'bold'),
         fill = '#0f4d88'
     )
 
-def create_hiscore_table(frame, value):
-    hiscore_df = hi.initialize_hiscore_dataframe().sort_values(by = [value], ascending = False)
+def create_hiscore_table(frame):
+    '''Creates and displays the hiscore table in the hiscore page. The table
+    size is 4x10 including the column names
+
+            Args:
+                frame: The frame image is displayed upon
+
+            Returns:
+                None'''
+    hiscore_df = hs.initialize_hiscore_dataframe().sort_values(
+        by = ['points'],
+        ascending = False)
 
     table_cell_width = 65
     table_cell_height = 30
     table_cell_x = 30
     table_cell_y = 120
 
-    gamertag_label = tk.Label(
-        frame,
-        text = 'Gamertag',
-        bg = '#0f4d88',
-        fg = '#ffcb05',
-        font = ('Helvetica', 10, 'bold')
-    )
-    gamertag_label.place(
-        width = table_cell_width,
-        height = table_cell_height,
-        x = table_cell_x,
-        y = table_cell_y - table_cell_height
-    )
-    points_label = tk.Label(
-        frame,
-        text = 'Points',
-        bg = '#0f4d88',
-        fg = '#ffcb05',
-        font = ('Helvetica', 10, 'bold')
-    )
-    points_label.place(
-        width = table_cell_width,
-        height = table_cell_height,
-        x = table_cell_x + table_cell_width,
-        y = table_cell_y - table_cell_height
-    )
-    correct_answers_label = tk.Label(
-        frame,
-        text = '# correct',
-        bg = '#0f4d88',
-        fg = '#ffcb05',
-        font = ('Helvetica', 10, 'bold')
-    )
-    correct_answers_label.place(
-        width = table_cell_width,
-        height = table_cell_height,
-        x = table_cell_x + table_cell_width*2,
-        y = table_cell_y - table_cell_height
-    )
-    gens_label = tk.Label(
-        frame,
-        text = 'Gens',
-        bg = '#0f4d88',
-        fg = '#ffcb05',
-        font = ('Helvetica', 10, 'bold')
-    )
-    gens_label.place(
-        width = table_cell_width,
-        height = table_cell_height,
-        x = table_cell_x + table_cell_width*3,
-        y = table_cell_y - table_cell_height
-    )
-    for x in range(len(hiscore_df)):
-        for y in range(len(hiscore_df.columns)):
-            if x % 2 == 0:
+    for index in range(len(hiscore_df.columns)):
+        table_label = hiscore_df.columns[index].capitalize()
+        tk.Label(
+            frame,
+            text = table_label,
+            bg = '#0f4d88',
+            fg = '#ffcb05',
+            font = ('Helvetica', 10, 'bold')
+        ).place(
+            width = table_cell_width,
+            height = table_cell_height,
+            x = table_cell_x + (table_cell_width * index),
+            y = table_cell_y - table_cell_height
+        )
+
+    for index in range(len(hiscore_df)):
+        for column in range(len(hiscore_df.columns)):
+            if index % 2 == 0:
                 tk.Label(
                     frame,
-                    text = str(hiscore_df.iloc[x][y]),
+                    text = str(hiscore_df.iloc[index][column]),
                     bg = '#ec3025',
                     fg = '#0f4d88',
                     font = ('Helvetica', 10)
                 ).place(
                     width = table_cell_width,
                     height = table_cell_height,
-                    x = table_cell_x + (table_cell_width * y),
-                    y = table_cell_y + (table_cell_height * x)
+                    x = table_cell_x + (table_cell_width * column),
+                    y = table_cell_y + (table_cell_height * index)
                 )
             else:
                 tk.Label(
                     frame,
-                    text = str(hiscore_df.iloc[x][y]),
+                    text = str(hiscore_df.iloc[index][column]),
                     bg = '#0f4d88',
                     fg = '#ffcb05',
                     font = ('Helvetica', 10)
                 ).place(
                     width = table_cell_width,
                     height = table_cell_height,
-                    x = table_cell_x + (table_cell_width * y),
-                    y = table_cell_y + (table_cell_height * x)
+                    x = table_cell_x + (table_cell_width * column),
+                    y = table_cell_y + (table_cell_height * index)
                 )
-

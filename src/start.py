@@ -8,5 +8,6 @@ ui = UI(root)
 ui.start()
 
 root.geometry('640x480')
+root.resizable(0,0)
 
 root.mainloop()
