@@ -4,7 +4,9 @@
 ### Tarkoitus
 Who's that Pokémon on sovellus, joka toimii perinteisen Pokémon-animen rinnalla esitettävien kuva-arvoitusten mukaisesti. Pelissä on tarkoitus tunnistaa kuvassa näkyvä Pokémon vain sen mustan siluetin perusteella ja syöttää sen nimi kirjoitusnäkymään. Käyttäjä saa pisteitä sen mukaan, kuinka monella generaatiolla sovellusta käytetään.\
 \
-Sovelluksessa on sukupolvien 1-8 Pokémonit (898kpl) sekä näiden mahdolliset evoluutiohaaran sisällä tapahtuvat mahdolliset erikoismuodot. Käyttäjän valittavissa on tavallisten generaatioiden lisäksi megaevoluutiot, gigantamax-evoluutiot, Alolan erikoisevoluutiot sekä Galarin erikoisevoluutiot. Valittavia evoluutiomahdollisuuksia aloitusnäkymässä on siis 12kpl.\Pisteytys tapahtuu periaatteella 50/generaatio, eli yhdellä generaatiolla pelatessa oikeasta vastauksesta saa 50 pistettä ja kaikilla generatiovalinnoilla oikean vastauksen arvo on 360 pistettä.\
+Sovelluksessa on sukupolvien 1-8 Pokémonit (898kpl) sekä näiden mahdolliset evoluutiohaaran sisällä tapahtuvat mahdolliset erikoismuodot. Käyttäjän valittavissa on tavallisten generaatioiden lisäksi megaevoluutiot, gigantamax-evoluutiot, Alolan erikoisevoluutiot sekä Galarin erikoisevoluutiot. Valittavia evoluutiomahdollisuuksia aloitusnäkymässä on siis 12kpl.\
+\
+Pisteytys tapahtuu periaatteella 50/generaatio, eli yhdellä generaatiolla pelatessa oikeasta vastauksesta saa 50 pistettä ja kaikilla generatiovalinnoilla oikean vastauksen arvo on 360 pistettä.\
 \
 Sovelluksen perimmäinen tarkoitus on harjoitella Pokémonien nimien muistamista, mutta se voidaan myös mieltää peliksi. Kierroksen päätyttyä (Käyttäjän syötettyä väärän vastauksen kolmesti kierroksen aikana), mikäli käyttäjän saamat pisteet riittävät, käyttäjän on mahdollista tallentaa tuloksensa hiscoreihin.
 
