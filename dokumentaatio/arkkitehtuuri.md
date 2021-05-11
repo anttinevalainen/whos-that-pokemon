@@ -4,7 +4,7 @@
 
 Ohjelman pakkausrakenne on seuraava:
 
-<img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/logics.jpg>
+<img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/logics.png>
 
 *[Interface-osio](https://github.com/anttinevalainen/ot-harjoitustyo/tree/main/src/interface)* käsittelee graafisen käyttöliittymän ohjelmakoodin, kuten sovelluksen eri sivut sekä graafiseen liittymään kuuluvien osioiden luomisen ([create_widget.py](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/src/interface/create_widget.py)) \
 \
@@ -30,11 +30,11 @@ Sovelluksessa tapahtuvat muutokset käsitellään [data_handling.py](https://git
 
 ## Sovelluslogiikka
 
-Oheinen diagrammi osoittaa karkeasti sovelluksen logiikan:
+Oheinen diagrammi osoittaa sovelluksen pakkauslogiikan:
 
-<img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/packaging.jpg>
+<img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/packaging.png>
 
 ## Päätoiminnallisuudet
 
 Alla oleva sekvenssidiagrammi kuvaa sovelluksen toimintaa pelin aloituksesta ensimmäiseen väärään vastaukseen asti:
-<img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/sequential_diagram.jpg>
+<img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/sequential_diagram.png>
