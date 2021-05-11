@@ -26,7 +26,13 @@
 | 27.4.| 2    | Sekvenssidiagrammin ja Release 1 valmistelu                    |
 | 28.4.| 4    | Sovelluslogiikan korjailu ja parantelu                         |
 | 30.4.| 4    | Gen 7-8, regional formien ja gmaxien valmisteleminen           |
-| 5.4. | 2    | Diagrammien laatiminen                                         |
-| 7.4. | 3    | Saadun koodikatselmoinnin huomioiden korjailu                  |
-| 8.4. | 2    | Arkkitehtuurin ja käyttöohjeiden päivitys                      |
-|YHT   | 87   |                                                                |
+| 5.5. | 2    | Diagrammien laatiminen                                         |
+| 7.5. | 3    | Saadun koodikatselmoinnin huomioiden korjailu                  |
+| 8.5. | 2    | Arkkitehtuurin ja käyttöohjeiden päivitys                      |
+| 8.5. | 4    | Testien päivittäminen parannettua arkkitehtuuria varten        |
+| 9.5. | 2    | Testien luominen uusille tiedostoille                          |
+| 9.5. | 1    | Muutamien yksittäisten sisältöjen tuominen data-kansioon       |
+| 11.5.| 3    | Sovellusarkkitehtuurin päivittäminen ja graafien luominen      |
+| 11.5.| 2    | Githubin readme-tiedostojen päivitys                           |
+| 11.5.| 3    | Viimeisen releasen valmistelu ja lähetys                       |
+|YHT   | 102   |                                                               |
