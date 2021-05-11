@@ -37,12 +37,6 @@ Sovellus on luotu ja testattu Pythonin versiolla 3.9.2.
 poetry ínstall
 ```
 
-2. Valmistele sovelluksen toiminta komennolla:
-
-```bash
-poetry run invoke build
-```
-
 2. Sovellus voidaan käynnistää komennolla:
 
 ```bash
