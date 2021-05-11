@@ -8,9 +8,11 @@ Who's that Pokémon on sovellus, joka toimii perinteisen Pokémon-animen rinnall
 
 Pelissä on tarkoitus tunnistaa kuvassa näkyvä Pokémon vain sen mustan siluetin perusteella ja syöttää sen nimi kirjoitusnäkymään. Käyttäjä saa pisteitä sen mukaan, kuinka monella evoluutiolla sovellusta käytetään.
 
-Sovelluksessa on sukupolvien 1-8 Pokémonit (898kpl). Tavallisten evoluutioiden lisäksi Pokémoneista on evoluutiohaaran sisällä tapahtuvat mahdolliset erikoismuodot. Sukupolvien 1-8 lisäksi käyttäjän on mahdollista lisätä arvuuteltavien Pokémonien joukkoon mahdolliset mega- sekä gigantamax-evoluutiot sekä aluekohtaiset erikoisevoluutiot (Alola ja Galar). Sovelluksen perimmäinen tarkoitus on harjoitella Pokémonien nimien muistamista, mutta se voidaan myös mieltää peliksi. Kierroksen päätyttyä (Käyttäjän syötettyä väärän vastauksen kolmesti kierroksen aikana tai kun Pokedexin kaikki Pokémonit on käyty läpi), mikäli kierroksella kerätyt pisteet riittävät, käyttäjän on mahdollista tallentaa tuloksensa huipputuloksiina.
+Sovelluksessa on sukupolvien 1-8 Pokémonit (898kpl). Tavallisten evoluutioiden lisäksi Pokémoneista on evoluutiohaaran sisällä tapahtuvat mahdolliset erikoismuodot. Sukupolvien 1-8 lisäksi käyttäjän on mahdollista lisätä arvuuteltavien Pokémonien joukkoon mahdolliset mega- sekä gigantamax-evoluutiot sekä aluekohtaiset erikoisevoluutiot (Alola ja Galar).
 
 <img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/wronganswer1.PNG width="320" height="240"> <img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/wronganswer2.PNG width="320" height="240">
+
+Sovelluksen perimmäinen tarkoitus on harjoitella Pokémonien nimien muistamista, mutta se voidaan myös mieltää peliksi. Kierroksen päätyttyä (Käyttäjän syötettyä väärän vastauksen kolmesti kierroksen aikana tai kun Pokedexin kaikki Pokémonit on käyty läpi), mikäli kierroksella kerätyt pisteet riittävät, käyttäjän on mahdollista tallentaa tuloksensa huipputuloksiina.
 
 Sovellus on luotu ja testattu Pythonin versiolla 3.9.2.
 
