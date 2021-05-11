@@ -2,9 +2,9 @@
 ## Harjoitustyön vaatimusmäärittely
 
 ### Tarkoitus
-Who's that Pokémon on sovellus, joka toimii perinteisen Pokémon-animen rinnalla esitettävien kuva-arvoitusten mukaisesti. Pelissä on tarkoitus tunnistaa kuvassa näkyvä Pokémon vain sen mustan siluetin perusteella ja syöttää sen nimi kirjoitusnäkymään. Käyttäjä saa pisteitä sen mukaan, kuinka monella generaatiolla sovellusta käytetään. Sovelluksessa on alustavasti sukupolvien 1-6 Pokémonit (721kpl) sekä näiden mahdolliset megaevoluutiot ja evoluutiohaaran sisällä tapahtuvat mahdolliset erikoismuodot. Pisteytys tapahtuu periaatteella 50/generaatio, eli yhdellä generaatiolla pelatessa oikeasta vastauksesta saa 50 pistettä ja kuudella generaatiolla oikean vastauksen arvo on 300 pistettä.\
+Who's that Pokémon on sovellus, joka toimii perinteisen Pokémon-animen rinnalla esitettävien kuva-arvoitusten mukaisesti. Pelissä on tarkoitus tunnistaa kuvassa näkyvä Pokémon vain sen mustan siluetin perusteella ja syöttää sen nimi kirjoitusnäkymään. Käyttäjä saa pisteitä sen mukaan, kuinka monella generaatiolla sovellusta käytetään. Sovelluksessa on sukupolvien 1-8 Pokémonit (898kpl) sekä näiden mahdolliset evoluutiohaaran sisällä tapahtuvat mahdolliset erikoismuodot. Käyttäjän valittavissa on tavallisten generaatioiden lisäksi megaevoluutiot, gigantamax-evoluutiot, Alolan erikoisevoluutiot sekä Galarin erikoisevoluutiot. Valittavia evoluutiomahdollisuuksia aloitusnäkymässä on siis 12kpl.\Pisteytys tapahtuu periaatteella 50/generaatio, eli yhdellä generaatiolla pelatessa oikeasta vastauksesta saa 50 pistettä ja kaikilla generatiovalinnoilla oikean vastauksen arvo on 360 pistettä.\
 \
-Sovelluksen perimmäinen tarkoitus on harjoitella Pokémonien nimien muistamista, mutta se voidaan myös mieltää peliksi. Kierroksen päätyttyä (Käyttäjän syötettyä väärän vastauksen kolmesti kierroksen aikana) käyttäjän on mahdollista tallentaa tuloksensa gamertagin (Kolme kirjainta) avulla.
+Sovelluksen perimmäinen tarkoitus on harjoitella Pokémonien nimien muistamista, mutta se voidaan myös mieltää peliksi. Kierroksen päätyttyä (Käyttäjän syötettyä väärän vastauksen kolmesti kierroksen aikana), mikäli käyttäjän saamat pisteet riittävät, käyttäjän on mahdollista tallentaa tuloksensa hiscoreihin.
 
 ### Käyttäjät
 Sovelluksella on vain yhdenlaisia käyttäjiä. Perustoiminnallisuus, eli Pokémonien tunnistaminen, kierroksen tuloksen tallentaminen sekä tulosten tarkastelu on peruskäyttäjän hallittavissa eikä tarvetta sisäänkirjautumiselle tai adminkäyttäjälle ole tarpeellista.
@@ -14,7 +14,7 @@ Alla sovelluksen ensimmäinen käyttöliittymäluonnos, joka on tehty 24.3.21
 
 <img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/concept.jpeg width="400" height="600">
 
-Sovelluksen lopullinen käyttöliittymänäkymä samassa pelitilanteessa näyttää tältä:
+Sovelluksen lopullinen käyttöliittymänäkymä (11.5.21) samassa pelitilanteessa näyttää tältä:
 
 <img src = https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/wronganswer1.PNG width="200" height="300">
 <img src = https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/wronganswer2.PNG width="200" height="300">
