@@ -43,8 +43,7 @@ Samassa näkymässä on myös mahdollista ottaa käyttöön Revision mode, joka 
 
 ## Pelinäkymä
 
-Sovelluksen päänäkymässä käyttäjän eteen ilmestyy täysin musta siluetti, joka esittää satunnaista pokemonia niistä generaatioista, jotka käyttäjä on valinnut.\
-Käyttäjän tarkoitus on arvata mikä Pokemon on kyseessä.
+Sovelluksen päänäkymässä käyttäjän eteen ilmestyy täysin musta siluetti, joka esittää satunnaista pokemonia niistä generaatioista, jotka käyttäjä on valinnut. Käyttäjän tarkoitus on arvata mikä Pokemon on kyseessä.
 
 <img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/playpage.PNG width="320" height="240"> <img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/correct.PNG width="320" height="240">
 
