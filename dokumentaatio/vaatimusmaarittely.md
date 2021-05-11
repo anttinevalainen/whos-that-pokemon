@@ -7,12 +7,17 @@ Who's that Pokémon on sovellus, joka toimii perinteisen Pokémon-animen rinnall
 Sovelluksen perimmäinen tarkoitus on harjoitella Pokémonien nimien muistamista, mutta se voidaan myös mieltää peliksi. Kierroksen päätyttyä (Käyttäjän syötettyä väärän vastauksen kolmesti kierroksen aikana) käyttäjän on mahdollista tallentaa tuloksensa gamertagin (Kolme kirjainta) avulla.
 
 ### Käyttäjät
-Sovelluksella on alustavasti vain yhdenlaisia käyttäjiä. Myös adminkäyttäjän lisääminen on mahdollista, jolloin kirjautunut admin voisi poistaa suorituksia esimerkiksi gamertagin perusteella. Perustoiminnallisuus, eli Pokémonien tunnistaminen, kierroksen tuloksen tallentaminen sekä tulosten tarkastelu on kuitenkin peruskäyttäjän hallittavissa.
+Sovelluksella on vain yhdenlaisia käyttäjiä. Perustoiminnallisuus, eli Pokémonien tunnistaminen, kierroksen tuloksen tallentaminen sekä tulosten tarkastelu on peruskäyttäjän hallittavissa eikä tarvetta sisäänkirjautumiselle tai adminkäyttäjälle ole tarpeellista.
 
 ### Käyttöliittymäluonnos
-Sovelluksen tarkempi käyttöliittymäluonnos on vielä tekeillä, mutta alla ns. concept art -luonnos sovelluksen päävaiheen ulkoasusta
+Alla sovelluksen ensimmäinen käyttöliittymäluonnos, joka on tehty 24.3.21
 
-<img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/concept.jpeg width="200" height="300">
+<img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/concept.jpeg width="400" height="600">
+
+Sovelluksen lopullinen käyttöliittymänäkymä samassa pelitilanteessa näyttää tältä:
+
+<img src = https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/wronganswer1.PNG width="200" height="300">
+<img src = https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/wronganswer2.PNG width="200" height="300">
 
 
 ### Perusversion tarjoama toiminnallisuus
@@ -37,11 +42,13 @@ Sovelluksen tarkempi käyttöliittymäluonnos on vielä tekeillä, mutta alla ns
  - Sovellus hyväksyy megaevoluutioiden kohdalla vastauksen VAIN mikäli vastaus on muotoa 'Mega [Pokemonin nimi]', eli esimerkiksi 'Mega Mewtwo'. Erikoismuotoja ei kuitenkaan tarvitse tietää (Esim Hoopan unchained muodon oikea vastaus on vain 'Hoopa') (✓)
  - Sovelluksesta on päätetty jättää kokonaan pois ajastin testipelaajien kommenttien myötä. Sovelluksen koetaan olevan tarpeeksi vaikea ja joidenkin siluettien kohdalla 10sek ei riitä nimen muistamiseen. Myös adminkäyttäjän lisääminen on poistettu todo-listalta (✓)
 
-Tekemättä (4.5.)
- - Sovellusta varten on ladattu, muokattu ja alustettu nyt myös generaatioiden 7-8 pokemonit sekä kaikki mahdolliset gigantamaxmuodot sekä alolan ja galarian-muodot. Näitä ei kuitenkaan ole vielä lisätty uusimpaan releaseen (2) vaan ne tulee olemaan mukana loppupalautuksessa!
+#### Loppupalautukseen tehty:
+ - Sovellusta varten on ladattu, muokattu ja alustettu nyt myös generaatioiden 7-8 pokemonit sekä kaikki mahdolliset gigantamax-muodot sekä Alolan ja Galarian-muodot. Myös yksittäisiä erikoismuotoja on lisätty eri generaatioihin (✓)
+    - Myös gigantamax-, Alolan-, ja Galarian-muotojen kohdalla arvauksen on sisällettävä Megaevoluutioiden tavoin oma etuliitteensä (Gigantamax, Alolan tai Galarian)
+ - Sovelluksen päätoiminnallisuutta ja hierarkiaa on paranneltu runsaasti. Sovelluksen toiminnallisuus on täysin siirretty services-kansion tiedostoihin ja gameplay-kansioon on eristetty sovelluksessa käytettävät objektit: Player, Gamemode, Pokedex ja Pokemon (✓)
+ - Testien kattavuus on nyt 100% (✓)
 
 ### Jatkokehitysideat
-- Puuttuvien Pokémonien lisääminen sovellukseen (722-898)
 - Perinteisten Who's that Pokémon -äänefektien lisääminen sovellukseen
 - Vastausten tilastointi, esimerkiksi eniten ja vähiten tunnistetut Pokémonit
-- Kirjoitusvirheiden huomiointi arvauksissa, jolloin sovellus voisi esimerkiksi palkita käyttäjän osittaisilla pisteillä ja sovellus siirtyy seuraavalle kierrokselle
+- Kirjoitusvirheiden huomiointi arvauksissa, jolloin sovellus voisi esimerkiksi palkita käyttäjän osittaisilla pisteillä ja sovellus siirtyy seuraavalle kierrokselle. Nykyisessä versiossaan sovellus ei huomioi isoja kirjaimia, välilyöntejä tai erikoismerkkejä.
