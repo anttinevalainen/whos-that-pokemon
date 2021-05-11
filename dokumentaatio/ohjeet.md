@@ -61,21 +61,22 @@ Molemmissa tapauksissa seuraavaan vaiheeseen pääsee enteriä painamalla tai kl
 
 Käyttäjän syöttämä vastaus tai sen vertaaminen Pokémonin nimeen ei ole case-sensitive, eli esimerkiksi pelkkien pienten kirjainten käyttö on sallittua. Myöskään erikoismerkeistä tai välilyönneistä ei tarvitse välittää.
 
-| Täysi nimi        | Hyväksytty vastaus | Sovelluksen ilmoitus              |
-| :----:            |:-----              | :-----                            |
-| Horsea            | horsea             | Correct! It's HORSEA!             |
-| Aegislash (Shield)| Aegislash          | Correct! It's Aegislash (Shield)! |
-| Aegislash (Blade) | Aegislash          | Correct! It's Aegislash (Blade)!  |
-| Mega Venusaur     | mega Venusaur      | Correct! It's MEGA VENUSAUR!      |
-| Mega Mewtwo (X)   | mega mewtwo        | Correct! It's MEGA MEWTWO (X)!    |
-| Mime Jr.          | Mime jr            | Correct! It's MIME JR.!           |
-| Mime Jr.          | mimejr             | Correct! It's MIME JR.!           |
-| Mime Jr.          | Mime jr.           | Correct! It's MIME JR.!           |
-| Mime Jr.          | mimejr.            | Correct! It's MIME JR.!           |
-| Mime Jr.          | Mime.jr.           | Correct! It's MIME JR.!           |
-| Gigantamax gengar | gigantamax gengar  | Correct! It's GIGANTAMAX GENGAR!  |
-| Alolan Persion    | alolan persian     | Correct! It's ALOLAN PERSIAN!     |
-| Galarian Ponyta   | Galarian Ponyta    | Correct! It's GALARIAN PONYTA!    |
+| Täysi nimi                           | Hyväksytty vastaus    | Sovelluksen ilmoitus                                 |
+| :----:                               |:-----                 | :-----                                               |
+| Horsea                               | horsea                | Correct! It's HORSEA!                                |
+| Aegislash (Shield)                   | Aegislash             | Correct! It's Aegislash (Shield)!                    |
+| Aegislash (Blade)                    | Aegislash             | Correct! It's Aegislash (Blade)!                     |
+| Mega Venusaur                        | mega Venusaur         | Correct! It's MEGA VENUSAUR!                         |
+| Mega Mewtwo (X)                      | mega mewtwo           | Correct! It's MEGA MEWTWO (X)!                       |
+| Mime Jr.                             | Mime jr               | Correct! It's MIME JR.!                              |
+| Mime Jr.                             | mimejr                | Correct! It's MIME JR.!                              |
+| Mime Jr.                             | Mime jr.              | Correct! It's MIME JR.!                              |
+| Mime Jr.                             | mimejr.               | Correct! It's MIME JR.!                              |
+| Mime Jr.                             | Mime.jr.              | Correct! It's MIME JR.!                              |
+| Gigantamax gengar                    | gigantamax gengar     | Correct! It's GIGANTAMAX GENGAR!                     |
+| Alolan Persion                       | alolan persian        | Correct! It's ALOLAN PERSIAN!                        |
+| Galarian Ponyta                      | Galarian Ponyta       | Correct! It's GALARIAN PONYTA!                       |
+| Gigantamax Urshifu (Single Strike)   | Gigantamax Urshifu    | Correct! It's GIGANTAMAX URSHIFU (SINGLE STRIKE)!    |
 
 Joillakin pokemoneilla on evoluutiohaaran sisäisiä erikoismuotoja, jotka ilmoitetaan sovelluksessa Pokemonin nimen perässä sulkeissa. Näitä osioita ei tarvitse osata pelatessa ja esimerkiksi 'Aegislash (Blade)' arvatessa sovellus ilmoittaa väärästä vastauksesta.\
 
