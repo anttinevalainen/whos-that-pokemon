@@ -1,4 +1,3 @@
-import unidecode as ud
 from PIL import Image, ImageTk
 
 def check_answer(pokemon, answer):
@@ -25,17 +24,42 @@ def check_answer(pokemon, answer):
         pokemon.set_name('gigantamax appletun')
         pokemon_name = pokemon.get_name().lower()
 
-    pokemon_name = ud.unidecode(pokemon_name)
-    answer = ud.unidecode(answer)
-
     full_name = pokemon.get_full_name().upper()
 
     for character in pokemon_name:
         if character.isalnum():
+
+            if character in 'àáâãäå':
+                character = 'a'
+            elif character in 'èéêë':
+                character = 'e'
+            elif character in 'ìíîï':
+                character = 'i'
+            elif character in 'òóôõö':
+                character = 'o'
+            elif character in 'ùúûü':
+                character = 'u'
+            elif character in 'ýÿ':
+                character = 'y'
+
             answer_correct += character
 
     for character in answer:
         if character.isalnum():
+
+            if character in 'àáâãäå':
+                character = 'a'
+            elif character in 'èéêë':
+                character = 'e'
+            elif character in 'ìíîï':
+                character = 'i'
+            elif character in 'òóôõö':
+                character = 'o'
+            elif character in 'ùúûü':
+                character = 'u'
+            elif character in 'ýÿ':
+                character = 'y'
+
             user_answer += character
 
     if answer_correct == user_answer:
