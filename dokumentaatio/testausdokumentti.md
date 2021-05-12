@@ -29,7 +29,7 @@ Huipputuloksien tallennusta varten tehdylle hiscore_service.py -tiedostolle on t
 
 Käyttöliittymäkerrosta lukuunottamatta sovelluksen testauksen haarautumakattavuus on 99%
 
-<img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/coverage_report.png>
+<img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/coverage.png>
 
 Testaamatta jäivät vain sovelluksen käyttöliittymästä vastaavat interface-kansion funktiot ja luokat
 
