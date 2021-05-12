@@ -8,11 +8,11 @@ Ohjelman pakkausrakenne on seuraava:
 
 *[Interface-osio](https://github.com/anttinevalainen/ot-harjoitustyo/tree/main/src/interface)* käsittelee graafisen käyttöliittymän ohjelmakoodin, kuten sovelluksen eri sivut sekä graafiseen liittymään kuuluvien osioiden luomisen ([create_widget.py](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/src/interface/create_widget.py)) \
 \
-*[Data-osio](https://github.com/anttinevalainen/ot-harjoitustyo/tree/main/src/data)* kattaa sisällään sovelluksen vaatiman datan, kuten tietokannat sekä kuvat, joiden pohjalta sovellus toimii. Lisäksi [data_handling.py](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/src/data/data_handling.py) on vastuussa data-kansiossa olevien tiedostojen käsittelemisestä \
+*[Data-osio](https://github.com/anttinevalainen/ot-harjoitustyo/tree/main/src/data)* kattaa sisällään sovelluksen vaatiman datan, kuten tietokannat sekä kuvat, joiden pohjalta sovellus toimii. \
 \
-*[Services-osio](https://github.com/anttinevalainen/ot-harjoitustyo/tree/main/src/services)* vastaa pelaajan tietojen tallennuksesta sekä sovelluslogiikasta \
+*[Services-osio](https://github.com/anttinevalainen/ot-harjoitustyo/tree/main/src/services)* vastaa tietojenkäsittelystä sekä sovelluslogiikasta \
 \
-*[Gameplay-osio](https://github.com/anttinevalainen/ot-harjoitustyo/tree/main/src/gameplay)* vastaa sovelluksen tietokohteista, joihin kuuluu käyttäjä ja gamemode
+*[Gameplay-osio](https://github.com/anttinevalainen/ot-harjoitustyo/tree/main/src/gameplay)* vastaa sovelluksen tietokohteista, joihin kuuluu player, gamemode, pokedex ja pokemon
 
 
 ## Käyttöliittymä
@@ -37,6 +37,14 @@ Sovellus varastoi tietoa neljään eri luokkaan, jotka ovat:
 - [Gamemode](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/src/gameplay/gamemode.py), joka tallentaa käyttäjän valikoimat generaatiot sekä revision-moden
 - [Pokedex](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/src/gameplay/pokedex.py), joka hallinnoi kierroksen Pokedexiä ja valikoi sieltä Pokémoneja
 - [Pokemon](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/src/gameplay/pokemon.py), joka kuvaa pokedex.py:ssä luotua satunnaista Pokémonia
+
+Sovelluslogiikasta vastaa tietokohteita varten luodut service-kansion tiedostot:
+- [Player_service](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/src/services/player_service.py)
+- [Gamemode_service](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/src/services/gamemode_service.py)
+- [Pokemon_service](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/src/services/pokemon_service.py)
+
+Sekä huipputuloksien tallennusta varten luotu:
+- [Hiscore_service](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/src/services/hiscore_service.py)
 
 Oheinen diagrammi osoittaa sovelluksen pakkauslogiikan:
 <img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/packaging.png>
