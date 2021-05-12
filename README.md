@@ -24,20 +24,21 @@ Sovellus on luotu ja testattu Pythonin versiolla 3.9.2.
 - *[Tuntikirjanpito](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/tuntikirjanpito.md)*
 - *[Sovelluksen vaatimusmäärittely](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)*
 - *[Sovellusarkkitehtuuri](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)*
+- *[Testausdokumentti](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/testausdokumentti.md)*
 - *[Sovelluksen käyttöohjeet](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/ohjeet.md)*
 
 ## Releaset
 
 - *[Release 1](https://github.com/anttinevalainen/ot-harjoitustyo/releases/tag/Viikko5)*
 - *[Release 2](https://github.com/anttinevalainen/ot-harjoitustyo/releases/tag/Viikko6)*
-- *[Final Release](https://github.com/anttinevalainen/ot-harjoitustyo/releases/tag/FinalRelease)*
+- *[Release 3](https://github.com/anttinevalainen/ot-harjoitustyo/releases/tag/Viikko7)*
 
 ## Asennus
 
 1. Sovelluksen riippuvuudet (dependencies) sennetaan suorittamalla juurikansiossa komento:
 
 ```bash
-poetry ínstall
+poetry install
 ```
 
 2. Sovellus voidaan käynnistää komennolla:
