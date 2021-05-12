@@ -34,5 +34,7 @@
 | 9.5. | 1    | Muutamien yksittäisten sisältöjen tuominen data-kansioon       |
 | 11.5.| 3    | Sovellusarkkitehtuurin päivittäminen ja graafien luominen      |
 | 11.5.| 2    | Githubin readme-tiedostojen päivitys                           |
-| 11.5.| 3    | Viimeisen releasen valmistelu ja lähetys                       |
-|YHT   | 102   |                                                               |
+| 11.5.| 3    | Viikko7-release,  valmistelu ja lähetys                        |
+| 12.5.| 4    | Bugien korjaamista ja sovelluslogiikan parantelua              |
+| 12.5.| 2    | Testausdokumentin ja sovellusarkkitehtuurin päivitys           |
+|YHT   | 108   |                                                               |
