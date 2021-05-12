@@ -8,7 +8,7 @@ import services.pokemon_service as pks
 
 class TestPokemonService(unittest.TestCase):
     def setUp(self):
-        print('Pokedex service test initiation')
+        print('Pokemon service test initiation')
 
     def test_photoimage_functions_return_photoimages(self):
 

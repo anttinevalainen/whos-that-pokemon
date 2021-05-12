@@ -83,6 +83,26 @@ class TestPlayerService(unittest.TestCase):
         self.assertFalse(correct)
         self.assertFalse('Correct!' in text)
 
+    def test_check_answer_ignores_accents(self):
+        genchoice = [1,1,1,1,1,1,1,1,1,1,1,1]
+        pokedex = Pokedex(gs.create_pokedex_df(genchoice))
+
+        pokemon = pokedex.get_random_pokemon()
+
+        pokemon_name = pokemon.get_name()
+        player_guess = pokemon.get_name().replace('a', 'á')
+        player_guess = player_guess.replace('e', 'é')
+        player_guess = player_guess.replace('i', 'í')
+        player_guess = player_guess.replace('o', 'ó')
+        player_guess = player_guess.replace('u', 'ú')
+        player_guess = player_guess.replace('y', 'ý')
+
+        correct, text = ps.check_answer(pokemon, player_guess)
+
+        self.assertTrue(correct)
+        self.assertTrue('Correct!' in text)
+        self.assertNotEqual(player_guess, pokemon_name)
+
     def test_correct_answer_raises_points_and_answers(self):
         genchoice = []
         genchoice.append(1)

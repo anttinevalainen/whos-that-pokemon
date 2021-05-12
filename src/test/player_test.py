@@ -8,7 +8,7 @@ from gameplay.pokedex import Pokedex
 
 class TestPlayer(unittest.TestCase):
     def setUp(self):
-        print('Player score test initiation')
+        print('Player test initiation')
 
     def test_player_initializes_correctly(self):
         genchoice = []

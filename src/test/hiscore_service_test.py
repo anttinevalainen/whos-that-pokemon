@@ -13,7 +13,7 @@ from gameplay.pokedex import Pokedex
 class TestHiscoreService(unittest.TestCase):
     def setUp(self):
         self.table_filepath = 'src/data/hiscores.csv'
-        print('Hiscore save test initiation')
+        print('Hiscore service test initiation')
 
     def test_initialization_creates_hiscore_table_if_doesnt_exist(self):
         if os.path.exists(self.table_filepath):

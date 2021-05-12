@@ -1,3 +1,4 @@
+import unidecode as ud
 from PIL import Image, ImageTk
 
 def check_answer(pokemon, answer):
@@ -23,6 +24,9 @@ def check_answer(pokemon, answer):
     if pokemon_name == 'gigantamax flapple' and 'appletun' in answer:
         pokemon.set_name('gigantamax appletun')
         pokemon_name = pokemon.get_name().lower()
+
+    pokemon_name = ud.unidecode(pokemon_name)
+    answer = ud.unidecode(answer)
 
     full_name = pokemon.get_full_name().upper()
 
