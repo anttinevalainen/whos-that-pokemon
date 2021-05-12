@@ -37,7 +37,7 @@ Sovellus on luotu ja testattu Pythonin versiolla 3.9.2.
 1. Sovelluksen riippuvuudet (dependencies) sennetaan suorittamalla juurikansiossa komento:
 
 ```bash
-poetry ínstall
+poetry install
 ```
 
 2. Sovellus voidaan käynnistää komennolla:
