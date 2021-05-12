@@ -30,7 +30,7 @@ Sovellus on luotu ja testattu Pythonin versiolla 3.9.2.
 
 - *[Release 1](https://github.com/anttinevalainen/ot-harjoitustyo/releases/tag/Viikko5)*
 - *[Release 2](https://github.com/anttinevalainen/ot-harjoitustyo/releases/tag/Viikko6)*
-- *[Final Release](https://github.com/anttinevalainen/ot-harjoitustyo/releases/tag/FinalRelease)*
+- *[Release 3](https://github.com/anttinevalainen/ot-harjoitustyo/releases/tag/Viikko7)*
 
 ## Asennus
 
