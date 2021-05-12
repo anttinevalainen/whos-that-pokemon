@@ -1,6 +1,7 @@
 import unittest
 import os.path
 import random as rd
+
 from gameplay.player import Player
 from gameplay.gamemode import Gamemode
 from gameplay.pokedex import Pokedex

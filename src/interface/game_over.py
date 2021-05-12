@@ -1,4 +1,5 @@
 import tkinter as tk
+
 from gameplay.player import Player
 from gameplay.pokedex import Pokedex
 import interface.create_widget as cw
@@ -102,7 +103,7 @@ class GameOverPage:
                     lambda x: self.try_again_pressed())
 
         if self.gamemode.get_revision():
-            self.game_over_label['text'] = ('GAME OVER! No Pokemon left to show!\n' +
+            self.game_over_label['text'] = ('GAME OVER! No Pokémon left to show!\n' +
                                             "You're playing in revision mode\n" +
                                             'Score cannot be sent to hiscores')
             self.game_over_label['font'] = ('Helvetica', 10)
@@ -110,7 +111,7 @@ class GameOverPage:
         elif hs.points_qualify_for_hiscore(self.player.get_points()):
             if self.pokedex.is_empty():
                 self.game_over_label['text'] = ('GAME OVER!\n' +
-                                            'No more Pokemon left\n' +
+                                            'No more Pokémon left\n' +
                                             'Send score to hiscores?')
             else:
                 self.game_over_label['text'] = ('GAME OVER!\n' +
@@ -130,7 +131,7 @@ class GameOverPage:
                     lambda x: self.send_hiscore_pressed())
 
         elif self.pokedex.is_empty():
-            self.game_over_label['text'] = ('GAME OVER! No Pokemon left to show!\n' +
+            self.game_over_label['text'] = ('GAME OVER! No Pokémon left to show!\n' +
                                             'Not enough points for hiscores!\n' +
                                             'Try again?')
             self.game_over_label['font'] = ('Helvetica', 10)

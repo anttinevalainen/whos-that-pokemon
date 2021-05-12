@@ -12,13 +12,13 @@ class Gamemode:
         '''Class constructor, creates a new gamemode
 
             Args:
-                genchoicelist: A list of six binaries (0-1).
-                1: generation with list index has been chosen
-                0: generation with list index has not been chosen
+                genchoicelist: A list of twelve binaries (0-1).
+                    1: generation with list index has been chosen
+                    0: generation with list index has not been chosen
 
                 revision: A boolean value depicting the use of revision mode.
-                True: The revision mode is ON
-                False: The revision mode is OFF
+                    True: The revision mode is ON
+                    False: The revision mode is OFF
         '''
 
         self.genchoicelist = genchoicelist
@@ -32,7 +32,7 @@ class Gamemode:
             self
 
         Returns:
-            list object of 6 values (0-1)
+            list object of 12 binaries (0-1)
         '''
 
         return self.genchoicelist
@@ -72,7 +72,7 @@ class Gamemode:
 
 
     def get_number_of_pokemon(self):
-        '''Returns an integer value of the amount of pokemon
+        '''Returns an integer value of the amount of Pokémon
         the user is playing with
 
         Args:
@@ -82,7 +82,7 @@ class Gamemode:
             An integer value 18-1085
         '''
 
-        number_of_pokemon = 1085
+        number_of_pokemon = 0
         gen_number_list = []
 
         for i in range(0, 12):
@@ -94,9 +94,9 @@ class Gamemode:
 
         for position, item in enumerate(self.genchoicelist):
 
-            if item == 0:
-                erase = gen_number_list[position]
-                number_of_pokemon -= erase
+            if item == 1:
+                gen_length = gen_number_list[position]
+                number_of_pokemon += gen_length
 
         return number_of_pokemon
 
@@ -108,7 +108,7 @@ class Gamemode:
             self
 
         Returns:
-            a sting with chosen generations
+            a string with chosen generations
         '''
 
         gen_string = ''

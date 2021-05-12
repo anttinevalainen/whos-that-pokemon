@@ -5,7 +5,7 @@ from interface.gamertag_input import GamertagPage
 from interface.game_over import GameOverPage
 
 class UI:
-    '''A class for the Who's that pokemon -app's graphic interface
+    '''A class for the Who's that Pokémon -app's graphic interface
 
     Attributes:
         root: The main root of the game

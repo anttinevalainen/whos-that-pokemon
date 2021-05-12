@@ -4,13 +4,13 @@ def check_answer(pokemon, answer):
     '''Returns a a boolean value of answer correctness.
 
         Args:
-            pokemon_full_name: String value of Pokamon name,
+            pokemon_full_name: String value of Pokémon name,
             can be used with special forms and mega/gigantamax evolutions!
             answer: User input from play page
 
         Returns:
-            True: Answer matches with pokemon name
-            False: Answer does not match with pokemon name
+            True: Answer matches with Pokémon name
+            False: Answer does not match with Pokémon name
     '''
 
     correct = False
@@ -20,6 +20,9 @@ def check_answer(pokemon, answer):
 
     pokemon_name = pokemon.get_name().lower()
     answer = answer.lower()
+    if pokemon_name == 'gigantamax flapple' and 'appletun' in answer:
+        pokemon.set_name('gigantamax appletun')
+        pokemon_name = pokemon.get_name().lower()
 
     full_name = pokemon.get_full_name().upper()
 

@@ -1,4 +1,5 @@
 import tkinter as tk
+
 import services.player_service as ps
 import services.pokemon_service as pks
 import interface.create_widget as cw
@@ -28,9 +29,11 @@ class PlayPage:
 
         self.root = root
         self.player = player
-        self.gamemode = self.player.get_gamemode()
         self.index_button_action = index_button_action
         self.game_over_action = game_over_action
+
+        self.gamemode = self.player.get_gamemode()
+        self.health_photoimage = ps.get_health_photoimage(self.player)
         self.initialize()
 
     def initialize(self):
@@ -55,8 +58,6 @@ class PlayPage:
 
         self.s_photoimage = pks.get_pokemon_photoimage(self.s_filename)
         self.p_photoimage = pks.get_pokemon_photoimage(self.p_filename)
-
-        self.health_photoimage = ps.get_health_photoimage(self.player)
 
         cw.create_health_label(self.root, self.health_photoimage)
         cw.create_progress_label(self.root, self.player)

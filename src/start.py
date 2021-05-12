@@ -1,8 +1,9 @@
 import tkinter as tk
+
 from interface.ui import UI
 
 root = tk.Tk()
-root.title("Who's that Pokemon?!?!?!?!?!")
+root.title("Who's that Pokémon?!?!?!?!?!")
 
 ui = UI(root)
 ui.start()

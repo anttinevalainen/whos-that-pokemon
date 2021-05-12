@@ -1,8 +1,9 @@
 import tkinter as tk
+
 import services.hiscore_service as hs
 
 def create_pokemon_label(frame, photoimage):
-    '''Creates and displays a label with pokemon's/silhouette's image
+    '''Creates and displays a label with Pokémon's/silhouette's image
     combined with interface background
 
             Args:

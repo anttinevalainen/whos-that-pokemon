@@ -1,12 +1,12 @@
 from PIL import Image, ImageTk
 
 def get_pokemon_photoimage(filepath):
-    '''returns a ready made photoimage of the pokemon picture merged with
+    '''returns a ready made photoimage of the Pokémon picture merged with
         the background of the app. Can be used with either silhouette or
-        pokemon image filepaths
+        Pokémon image filepaths
 
         Args:
-            filename: name of a png-file of the pokemon or its silhouette
+            filename: name of a png-file of the Pokémon or its silhouette
             from data/png folder
 
         Returns:

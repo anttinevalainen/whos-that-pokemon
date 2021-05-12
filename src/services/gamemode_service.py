@@ -1,14 +1,14 @@
 import pandas as pd
 
 def create_pokedex_df(genchoicelist):
-    '''Returns a dataframe with only pokemon from the generations
+    '''Returns a dataframe with only Pokémon from the generations
     player has chosen in the gamertag input page
 
     Args:
         self
 
     Returns:
-        a dataframe with pokemon of the generations user has chosen
+        a dataframe with Pokémon of the generations user has chosen
     '''
 
     columns = ['id', 'pdno', 'name', 'secondary_name', 'gen']

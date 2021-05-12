@@ -1,8 +1,9 @@
 import random as rd
+
 from gameplay.pokemon import Pokemon
 
 class Pokedex:
-    '''A class that depicts a pokedex filled with pokemon user has to guess
+    '''A class that depicts a pokedex filled with Pokémon user has to guess
 
     Attributes:
         gamemode: Dataframe of user's pokemon
@@ -14,13 +15,13 @@ class Pokedex:
 
             Args:
                 pokedex: A dataframe created by gamemode class. Includes the
-                generations of Pokemon the user is playing with.
+                generations of Pokémon the user is playing with.
         '''
 
         self.pokedex_df = pokedex_df
 
     def get_pokedex_df(self):
-        '''Returns the dataframe of all the Pokemon left in the pokedex
+        '''Returns the dataframe of all the Pokémon left in the pokedex
 
             Args:
                 self
@@ -43,11 +44,11 @@ class Pokedex:
         return self.pokedex_df.empty
 
     def erase_pokemon(self, pokemon):
-        '''Erases a row with pokemon data set to the function when called
+        '''Erases a row with Pokémon data set to the function when called
 
             Args:
                 self
-                pokemon: pokemon object to be removed
+                pokemon: Pokémon object to be removed
 
             Returns:
                 None'''
@@ -57,13 +58,13 @@ class Pokedex:
         self.pokedex_df = self.pokedex_df.reset_index(drop=True)
 
     def get_random_pokemon(self):
-        '''Returns a random pokemon from the current pokedex
+        '''Returns a random Pokémon from the current pokedex
 
             Args:
                 self
 
             Returns:
-                pokemon object picked at random from pokedex dataframe'''
+                Pokémon object picked at random from pokedex dataframe'''
 
         random_int = rd.randint(0, len(self.pokedex_df)-1)
         random_row = self.pokedex_df.loc[random_int, : ]

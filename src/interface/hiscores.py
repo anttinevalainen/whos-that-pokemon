@@ -1,4 +1,5 @@
 import tkinter as tk
+
 import interface.create_widget as cw
 
 class HiscorePage:
@@ -48,9 +49,7 @@ class HiscorePage:
 
         index_button.place(x = 520, y = 20, width = 100, height = 44)
 
-        self.root.bind(
-                    "<Return>",
-                    lambda: self.index_button_action())
+        self.root.bind("<Return>", lambda x: self.index_button_action())
 
     def close_frame(self):
         '''Actions to close the frame of the hiscore page

@@ -1,4 +1,5 @@
 import tkinter as tk
+
 from gameplay.player import Player
 from gameplay.pokedex import Pokedex
 from gameplay.gamemode import Gamemode
@@ -381,7 +382,7 @@ class GamertagPage:
         )
         tk.Label(
             self.root,
-            text = ('*In revision mode, name of each pokemon ' +
+            text = ('*In revision mode, name of each Pokémon ' +
                     'will be displayed on the screen.' + '\n' +
                     'When using the app in revision mode, ' +
                     'your score cannot be sent to hiscores'),

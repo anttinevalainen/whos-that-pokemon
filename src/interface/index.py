@@ -1,4 +1,5 @@
 import tkinter as tk
+
 import interface.create_widget as cw
 
 class IndexPage:

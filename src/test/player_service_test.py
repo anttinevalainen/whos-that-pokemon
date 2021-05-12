@@ -1,6 +1,7 @@
 import unittest
 import random as rd
 import tkinter as tk
+
 from gameplay.player import Player
 from gameplay.gamemode import Gamemode
 from gameplay.pokedex import Pokedex

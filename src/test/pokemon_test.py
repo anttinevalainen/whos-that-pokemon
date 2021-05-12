@@ -1,9 +1,11 @@
 import unittest
 import os.path
 import random as rd
+
 from gameplay.player import Player
 from gameplay.gamemode import Gamemode
 from gameplay.pokedex import Pokedex
+from gameplay.pokemon import Pokemon
 import services.gamemode_service as gs
 import services.player_service as ps
 
@@ -138,3 +140,12 @@ class TestPokemon(unittest.TestCase):
             ps.incorrect_answer(player, pokemon)
         pokedex = player.get_pokedex()
         self.assertTrue(pokedex.is_empty())
+
+    def test_set_name_changes_pokemon_name(self):
+        pokemon = Pokemon('169',169,'Crobat','-','2')
+        ex_name = pokemon.get_name()
+        pokemon.set_name('Patamon')
+        new_name = pokemon.get_name()
+        self.assertNotEqual(ex_name, new_name)
+        self.assertNotEqual(new_name, 'Crobat')
+        self.assertEqual(new_name, 'Patamon')
