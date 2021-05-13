@@ -1,6 +1,6 @@
 # Instructions
 
-- The app's latest release can be found [HERE](https://github.com/anttinevalainen/ot-harjoitustyo/releases/tag/FinalRelease). Download the release by clickin _Source code_.\
+- The app's latest release can be found [HERE](https://github.com/anttinevalainen/ot-harjoitustyo/releases/tag/FinalRelease). Download the release by clickin _Source code_.
 - These instruction in Finnish can be found [HERE](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/ohjeet.md)
 
 ## Starting the app
