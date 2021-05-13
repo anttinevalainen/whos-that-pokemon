@@ -23,7 +23,7 @@ Sovellus on luotu ja testattu Pythonin versiolla 3.9.2.
 - *[Sovelluksen vaatimusmäärittely](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)*
 - *[Sovellusarkkitehtuuri](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)*
 - *[Testausdokumentti](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/testausdokumentti.md)*
-- *[Sovelluksen käyttöohjeet](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/ohjeet.md)*
+- *[Sovelluksen käyttöohjeet](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/ohjeet.md)* | *[Instructions in English](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/instructions.md)*
 
 ## Releaset
 
