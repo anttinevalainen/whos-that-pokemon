@@ -1,5 +1,3 @@
-# TKT20002 - Ohjelmistotekniikka
-
 <img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/playpage.PNG width="320" height="240">
 
 # Who's that Pokémon -tunnistussovellus
