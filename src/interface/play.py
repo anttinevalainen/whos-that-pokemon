@@ -88,7 +88,6 @@ class PlayPage:
             width = 200,
             height = 30
         )
-        #self.answer.insert(index = 0, string = self.pokemon_name)
 
         self.send_answer_button = tk.Button(
             self.root,
