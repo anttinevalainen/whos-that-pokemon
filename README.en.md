@@ -22,7 +22,7 @@ The app is created and tested with Python version 3.9.2.
 
 - *[Release 1](https://github.com/anttinevalainen/ot-harjoitustyo/releases/tag/Viikko5)*
 - *[Release 2](https://github.com/anttinevalainen/ot-harjoitustyo/releases/tag/Viikko6)*
-- *[Release 3](https://github.com/anttinevalainen/ot-harjoitustyo/releases/tag/Viikko7)*
+- *[Final release](https://github.com/anttinevalainen/ot-harjoitustyo/releases/tag/FinalRelease)*
 
 ## Instructions to use the app
 
