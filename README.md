@@ -1,5 +1,7 @@
 <img src=https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/dokumentaatio/pictures/playpage.PNG width="320" height="240">
 
+[README in English](https://github.com/anttinevalainen/ot-harjoitustyo/blob/main/README.en.md)
+
 # Who's that Pokémon -tunnistussovellus
 
 Who's that Pokémon on sovellus, joka toimii perinteisen Pokémon-animen rinnalla esitettävien kuva-arvoitusten mukaisesti.
