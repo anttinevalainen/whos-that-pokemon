@@ -75,3 +75,11 @@ Pylint suoritetaan komennolla:
 ```bash
 poetry run invoke lint
 ```
+
+
+```bash
+Antti Sankari Nevalainen
+a@anttisankari.com
+www.anttisankari.com
+https://github.com/anttinevalainen
+```
